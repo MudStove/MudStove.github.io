@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>数据库语句合集之DDL | MudStove’s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="数据库语句合集将分三大类DDL(数据定义语句)、DML（数据操纵语句）、DCL(数据控制语句)、 DQL(数据查询语句)对数据基本操作语句的进行归纳总结。本文为DDL的一些基本语句。">
+<meta name="keywords" content="数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库语句合集之DDL">
+<meta property="og:url" content="http://yoursite.com/2019/07/12/知识汇总/数据库/DDL/index.html">
+<meta property="og:site_name" content="MudStove’s Blog">
+<meta property="og:description" content="数据库语句合集将分三大类DDL(数据定义语句)、DML（数据操纵语句）、DCL(数据控制语句)、 DQL(数据查询语句)对数据基本操作语句的进行归纳总结。本文为DDL的一些基本语句。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2019-09-29T12:16:31.744Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库语句合集之DDL">
+<meta name="twitter:description" content="数据库语句合集将分三大类DDL(数据定义语句)、DML（数据操纵语句）、DCL(数据控制语句)、 DQL(数据查询语句)对数据基本操作语句的进行归纳总结。本文为DDL的一些基本语句。">
+  
+    <link rel="alternate" href="/atom.xml" title="MudStove’s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.webp">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+  <script>
+  let antiquityStorage = window.sessionStorage.getItem('antiquitySessionStorage');
+  if (antiquityStorage == '' || antiquityStorage == null) {
+    var antiquityLoader = '<div id="loaderbox"><div class="loader"><div class="load-roll"><div class="load-top"></div><div class="load-right"></div><div class="load-bottom"></div></div></div></div>';
+    document.write(antiquityLoader);
+    document.body.style.overflow = 'hidden'
+  }
+  </script>
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="可爱的我">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <!--<img src="../../sources/images/首页.png"></img>-->
+        <a class="nav-item" href="/"
+         title
+        
+        >首页</a>
+      
+        <!--<img src="../../sources/images/博客.png"></img>-->
+        <a class="nav-item" href="/archives"
+         title
+        
+        >博客</a>
+      
+        <!--<img src="../../sources/images/关于我.png"></img>-->
+        <a class="nav-item" href="/me"
+         title
+        
+        >关于我</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-left">
+        <section id="main"><article id="post-知识汇总/数据库/DDL" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      数据库语句合集之DDL
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/07/12/知识汇总/数据库/DDL/" class="article-date">
+  <time datetime="2019-07-12T03:27:30.000Z" itemprop="datePublished">2019-07-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/知识汇总/">知识汇总</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <p>数据库语句合集将分三大类DDL(数据定义语句)、DML（数据操纵语句）、DCL(数据控制语句)、 DQL(数据查询语句)对数据基本操作语句的进行归纳总结。本文为DDL的一些基本语句。</p>
+<a id="more"></a>
+
+<blockquote>
+<p>DDL：数据定义语句</p>
+</blockquote>
+<hr>
+<p>1、即对表格的定义与操作语句：包括create、drop、alter等</p>
+<p>2、常见操作如下：</p>
+<ul>
+<li><p>定义模式：  create schema 模式名 authorization 用户名<br>PS1: @ 定义模式即定义了一个命名空间，该空间中能进一步定义数据库对象–&gt;基本表、视图、索引等<br>PS2: @ 若不指定模式名，则用户名为WANG</p>
+</li>
+<li><p>删除模式：  drop schema 模式名 cascade/restrict<br>PS1: @ cascade：级联删除，即同时删除该模式下的所有数据库对象<br>PS2: @ restrict：限制删除，即该模式下的数据库对象会限制删除该模式–&gt;若数据库对象已经定义（该模式下创建了表或视图等），则该模式不能被删除</p>
+</li>
+<li><p>定义表：    create table 表名(列/字段1  类型1  约束条件1 ;  列/字段2  类型2  约束条件2; … );<br>PS: @ 约束条件可有可无 </p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create table Student( </span><br><span class="line">  Sno char(9)  primary key,</span><br><span class="line">  Ssex char(2),</span><br><span class="line">  ...</span><br><span class="line">  ...</span><br><span class="line">)</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>修改表：    alter table 表名 具体操作</p>
+<p>》增加列/字段：  具体操作 = add 新列/新字段  类型</p>
+<p>》删除列/字段：  具体操作 = drop column 列/字段 cascade/restrict</p>
+<p>》列/字段增加约束条件    具体操作 = add 约束条件(列名/字段名)</p>
+<p>》列/字段删除约束条件    具体操作 = drop constraint 约束条件 cascade/restrict</p>
+<p>》修改列（列名和类型）： 具体操作 = alter  column  新列/新字段  新类型</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">eg:</span><br><span class="line">  alter table Student add Sname varchar(20)    #向学生表增加“学生姓名”列</span><br><span class="line">  alter table Student drop column Sname  cascade   #删除学生姓名列</span><br><span class="line">  alter table Student add unique(Sno)      #为学号添加唯一约束</span><br><span class="line">  alter table Student drop constraint  unique  restrict  #删除唯一约束</span><br><span class="line">  alter table Student alter column Sage int  #修改列Sage为int类型</span><br><span class="line">  alter table Student alter column Sage1 int  #修改列Sage为Sage1</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>删除表：    drop table 表名 cascade/restrict</p>
+</li>
+<li><p>创建索引：  create unique/cluster index 索引名 on 表名(被索引列 asc/desc, 被索引列 asc/desc… 被索引列 asc/desc)<br>PS1: @ unique：唯一索引，即每一索引值只有一条记录<br>PS2: @ cluster：聚簇索引</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create unique index Student on SC(Sno)  #按学号升序建立唯一索引(默认asc)</span><br><span class="line">create unique index Course on SC(Cno desc)  #按课程号降序序建立唯一索引</span><br><span class="line">create unique index SC on SC(Sno asc, Cno desc)  #与上两个等价</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>修改索引：    alter index 旧索引名 rename to 新索引名</p>
+</li>
+<li><p>删除索引：    drop index 索引名</p>
+</li>
+<li><p>创建视图：    create view 视图名 as DML/DQL</p>
+</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">例子： 为信息系学生建立视图</span><br><span class="line"></span><br><span class="line">create view is_Student</span><br><span class="line">as</span><br><span class="line">select Sno,Sname,Sage</span><br><span class="line">from Student</span><br><span class="line">where Sdept = &apos;IS&apos;</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>删除视图：   drop view 视图名 cascade</li>
+</ul>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2019/07/13/知识汇总/数据库/DML/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            数据库语句合集之DML、DQL
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/07/11/错题汇总/数据库/2019-07-11/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">错题一</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <!--侧边栏关于自己的i第一个框-->
+
+<div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.webp" title="可爱的我"></img>
+    <h3 class="avatar-name">
+      
+        小火炉
+      
+    </h3>
+    <p class="avatar-slogan">
+      看似寻常最奇崛,成如容易却艰辛。
+    </p>
+  </div>
+</div>
+
+
+  
+    <!--分类-->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/个人随笔/">个人随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术问题/">技术问题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/知识汇总/">知识汇总</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/错题汇总/">错题汇总</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LINUX/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VUE-JS/">Vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人随笔/">个人随笔</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术问题/">技术问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法分析与设计/">算法分析与设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/综合试题/">综合试题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    <!--侧边栏边框中内容设置 -->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    <!--Recent Post边框-->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/25/错题汇总/综合试题/恒生准备/">准备</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/20/知识汇总/ES6/性质/">ES6特性</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/17/知识汇总/ES6/paomiseTwo/">Promise(二)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/17/知识汇总/ES6/promiseOne/">Promise(一)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/15/个人随笔/面经/pack/">Webpack和npm</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+      <div class="widget-box">
+    <h3 class="widget-title">友链</h3>
+    <div class="widget">
+      
+        <a style="display: block;" href="https://yiluyanxia.github.io/" title target='_blank'
+        >一路烟霞</a>
+      
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 Bammy &nbsp;&nbsp;
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">不蒜子告之   阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script>
+if (!window.jQuery) {
+var script = document.createElement('script');
+script.src = "/js/jquery-2.0.3.min.js";
+document.body.write(script);
+}
+</script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">博客</a>
+  
+    <a href="/me" class="mobile-nav-link">关于我</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+</body>
+</html>

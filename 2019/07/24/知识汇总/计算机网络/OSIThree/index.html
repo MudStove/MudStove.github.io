@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>OSI之网络层 | MudStove’s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="本文涉及网络层一些基本概念、IP等协议工作原理等">
+<meta name="keywords" content="计算机网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OSI之网络层">
+<meta property="og:url" content="http://yoursite.com/2019/07/24/知识汇总/计算机网络/OSIThree/index.html">
+<meta property="og:site_name" content="MudStove’s Blog">
+<meta property="og:description" content="本文涉及网络层一些基本概念、IP等协议工作原理等">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2019-09-29T11:36:29.983Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OSI之网络层">
+<meta name="twitter:description" content="本文涉及网络层一些基本概念、IP等协议工作原理等">
+  
+    <link rel="alternate" href="/atom.xml" title="MudStove’s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.webp">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+  <script>
+  let antiquityStorage = window.sessionStorage.getItem('antiquitySessionStorage');
+  if (antiquityStorage == '' || antiquityStorage == null) {
+    var antiquityLoader = '<div id="loaderbox"><div class="loader"><div class="load-roll"><div class="load-top"></div><div class="load-right"></div><div class="load-bottom"></div></div></div></div>';
+    document.write(antiquityLoader);
+    document.body.style.overflow = 'hidden'
+  }
+  </script>
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="可爱的我">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <!--<img src="../../sources/images/首页.png"></img>-->
+        <a class="nav-item" href="/"
+         title
+        
+        >首页</a>
+      
+        <!--<img src="../../sources/images/博客.png"></img>-->
+        <a class="nav-item" href="/archives"
+         title
+        
+        >博客</a>
+      
+        <!--<img src="../../sources/images/关于我.png"></img>-->
+        <a class="nav-item" href="/me"
+         title
+        
+        >关于我</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-left">
+        <section id="main"><article id="post-知识汇总/计算机网络/OSIThree" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      OSI之网络层
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/07/24/知识汇总/计算机网络/OSIThree/" class="article-date">
+  <time datetime="2019-07-24T11:02:50.000Z" itemprop="datePublished">2019-07-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/知识汇总/">知识汇总</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <p>本文涉及网络层一些基本概念、IP等协议工作原理等</p>
+<a id="more"></a>
+
+<blockquote>
+<p>网络层基本概念</p>
+</blockquote>
+<p>1、网络层提供的两种服务</p>
+<ul>
+<li><p>虚电路服务：在两台计算机通信前，要先建立连接(虚电路VC)</p>
+</li>
+<li><p>数据报服务: 网络层向上提供提供的简单灵活、无连接、尽最大努力交付的服务</p>
+</li>
+<li><p>网络层不提供服务质量的承诺</p>
+</li>
+<li><p>虚电路服务和数据报服务区别</p>
+<table>
+<thead>
+<tr>
+<th>对比的方面</th>
+<th>虚电路服务</th>
+<th>数据报服务</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>思路</td>
+<td>可靠通信由网络来保证</td>
+<td>可靠通信由用户主机来保证</td>
+</tr>
+<tr>
+<td>是否要建立连接</td>
+<td>需要</td>
+<td>不需要</td>
+</tr>
+<tr>
+<td>终点地址</td>
+<td>短的虚电路号</td>
+<td>终点的完整地址</td>
+</tr>
+<tr>
+<td>分组的转发</td>
+<td>同一虚电路的分组由相同的路由转发</td>
+<td>每个分组选择独立路由进行转发</td>
+</tr>
+<tr>
+<td>出现故障时</td>
+<td>不能工作</td>
+<td>出故障节点可能丢失分组，一些路由可能发生变化</td>
+</tr>
+<tr>
+<td>到达顺序</td>
+<td>和发送顺序相同</td>
+<td>不一定和和发送顺序相同</td>
+</tr>
+<tr>
+<td>差错处理和流量控制</td>
+<td>可由网络负责，也可由用户主机负责</td>
+<td>用户主机负责</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p>2、网络互连的中间设备</p>
+<ul>
+<li><p>物理层：转发器</p>
+</li>
+<li><p>数据链路层： 网桥、桥接器</p>
+</li>
+<li><p>网络层： 路由器</p>
+</li>
+<li><p>网络层以上： 网关</p>
+</li>
+</ul>
+<h2 id="3、网络层提供主机间的逻辑通信-而传输层提供进程间的逻辑通信"><a href="#3、网络层提供主机间的逻辑通信-而传输层提供进程间的逻辑通信" class="headerlink" title="3、网络层提供主机间的逻辑通信, 而传输层提供进程间的逻辑通信"></a>3、网络层提供主机间的逻辑通信, 而传输层提供进程间的逻辑通信</h2><blockquote>
+<p>网际协议IP</p>
+</blockquote>
+<p>1、IP地址定义：</p>
+<ul>
+<li>就是给每一台主机或路由器的每一个接口分配的一个在全世界范围内唯一的32位标识符； 由互联网名字和数字分配机构ICANN分配。</li>
+</ul>
+<p>2、IP地址编制历程：</p>
+<ul>
+<li><p>分类的IP地址</p>
+</li>
+<li><p>子网的划分</p>
+</li>
+<li><p>构成超网</p>
+</li>
+</ul>
+<p>3、IP地址/逻辑地址和硬件地址/物理地址</p>
+<ul>
+<li><p>IP数据报 = TCP报文 + IP首部（含IP地址）</p>
+</li>
+<li><p>MAC帧 =  帧首部（含硬件地址） + IP数据报 + 帧尾部</p>
+</li>
+</ul>
+<p>4、两级IP地址</p>
+<ul>
+<li><p>IP地址 = 网络号 + 主机号</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>网络号位数</th>
+<th>主机号位数</th>
+<th>最大网络数</th>
+<th>地址范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A类地址</td>
+<td>“0” + 7位</td>
+<td>24位</td>
+<td>2^7-2</td>
+<td>1.0.0.0 ~ 127.255.255.255</td>
+</tr>
+<tr>
+<td>B类地址</td>
+<td>“10” + 14位</td>
+<td>16位</td>
+<td>2^14-1</td>
+<td>128.0.0.0 ~ 191.255.255.255</td>
+</tr>
+<tr>
+<td>C类地址</td>
+<td>“110” + 21位</td>
+<td>8位</td>
+<td>2^21-1</td>
+<td>192.0.0.0 ~ 223.255.255.255</td>
+</tr>
+<tr>
+<td>D类地址</td>
+<td>“1110” + 多播地址</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>E类地址</td>
+<td>“1111” + 保留为今后所用</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>PS1: 主机号位数 ==&gt; 最大主机数 = 2^主机号位数</p>
+<p>PS2: 回环地址 ==&gt; 127.0.0.1</p>
+</li>
+</ul>
+<p>5、划分子网： </p>
+<ul>
+<li><p>是什么： 两级IP地址 –&gt;  三级IP地址</p>
+</li>
+<li><p>为什么：</p>
+<ul>
+<li><p>两级IP地址的空间利用率低</p>
+</li>
+<li><p>两级IP地址不够灵活：一个单位在开通新的网络，而在申请到之前，新增加的网络不能工作</p>
+</li>
+<li><p>给每一个物理网络分配网络号会让路由表变得太大，从而损坏网络性能</p>
+</li>
+</ul>
+</li>
+<li><p>怎么做：</p>
+<ul>
+<li><p>借用部分主机号充当子网号</p>
+</li>
+<li><p>IP地址 = 网络号 + 子网号 + 主机号</p>
+</li>
+</ul>
+</li>
+<li><p>子网掩码</p>
+<ul>
+<li><p>作用：判断是否有划分子网以及确定子网是什么</p>
+</li>
+<li><p>两级IP地址 的 子网掩码 = 网络号全置 1 + 主机号 全置 1</p>
+</li>
+<li><p>三级IP地址 的 子网掩码 = 网络号和子网号全置 1 + 主机号 全置 1</p>
+</li>
+<li><p>子网的网络地址 =  子网掩码 &amp; IP地址</p>
+</li>
+<li><p>子网数 = 2 ^ n - 2  （n为子网号的位数）</p>
+</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">栗子1：</span><br><span class="line"></span><br><span class="line">一个IP地址： 145.13.3.10  ==&gt; 145开头，属于B类地址 ==&gt; 网络号16位，主机号16位</span><br><span class="line"></span><br><span class="line">两级IP地址 的 子网掩码 = 11111111 11111111 00000000 00000000</span><br><span class="line"></span><br><span class="line">三级IP地址 的 子网掩码 = 11111111 11111111 11111111 00000000 （假设子网号为8位）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">栗子2：求网络地址</span><br><span class="line"></span><br><span class="line">已知一个IP地址： 141.14.72.24， 子网掩码: 255.255.192.0</span><br><span class="line"></span><br><span class="line">解答：</span><br><span class="line"></span><br><span class="line">IP地址： 141.14.72.24 = 141.14. 01000000 . 0 </span><br><span class="line"></span><br><span class="line">子网掩码: 255.255.192.0 = 11111111 . 11111111 . 11000000 . 00000000</span><br><span class="line"></span><br><span class="line">IP地址 &amp; 子网掩码 = 141.14.01000000.0 = 141.14.64.0</span><br></pre></td></tr></table></figure></div>
+
+</li>
+</ul>
+<hr>
+<blockquote>
+<p>地址解析协议ARP</p>
+</blockquote>
+<p>1、IP地址 （by ARP） –&gt; 物理地址 （by RARP） –&gt;  IP地址</p>
+<p>2、路由器：</p>
+<ul>
+<li><p>作用：缓存、查表、转发</p>
+</li>
+<li><p>2个端口，分别连接2个网络</p>
+</li>
+<li><p>（二级IP地址）路由表 = 目的主机所在网络 + 下一跳地址</p>
+</li>
+<li><p>（三级IP地址）路由表 = 目的主机所在网络 + 子网掩码 + 下一跳地址</p>
+<p>PS: 通过 目的网络 &amp; 子网掩码 ==&gt; 目的网络地址 ==&gt;  与 目的主机所在网络对比 ==&gt; 得到正确的目的网络地址</p>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p>网际控制报文协议ICMP</p>
+</blockquote>
+<ul>
+<li><p>作用： 能更有效的转发IP数据报</p>
+</li>
+<li><p>ICMP报文：装在IP数据报的数据部分</p>
+<table>
+<thead>
+<tr>
+<th>ICMP报文种类</th>
+<th>类型的值</th>
+<th>ICMP报文的类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>差错报告报文</td>
+<td>3</td>
+<td>终点不可达</td>
+</tr>
+<tr>
+<td>差错报告报文</td>
+<td>5</td>
+<td>改变路由（重定向）</td>
+</tr>
+<tr>
+<td>差错报告报文</td>
+<td>11</td>
+<td>时间超时</td>
+</tr>
+<tr>
+<td>差错报告报文</td>
+<td>12</td>
+<td>参数问题</td>
+</tr>
+<tr>
+<td>询问报文</td>
+<td>8/0</td>
+<td>回送请求或回答</td>
+</tr>
+<tr>
+<td>询问报文</td>
+<td>13/14</td>
+<td>时间戳请求或回答</td>
+</tr>
+</tbody></table>
+<p>PS1: 回送请求或回答–&gt;主机或路由器向一个特定的目的主机发出询问</p>
+<p>ps2: 时间戳请求或回答–&gt;主机或路由器向一个特定的目的主机询问当前日期和时间</p>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p>路由选择协议</p>
+</blockquote>
+<p>1、静态路由选择、动态路由选择</p>
+<ul>
+<li><p>静态路由选择： 也叫非自适应路由选择策略 《==》 不能适应网络状态的变化，简单，开销小，适合较简单的小型网络</p>
+</li>
+<li><p>动态路由选择： 也叫自适应路由选择策略 《==》 能适应网络状态的变化，复杂，开销大，适合较复杂的大型网络</p>
+</li>
+</ul>
+<p>2、自治系统 （AS）：互联网分割成许多小的网络，每个小网络便是一个自治系统</p>
+<p>3、内部网关协议 （IGP）</p>
+<ul>
+<li><p>定义： 一个自治系统内使用的路由选择协议</p>
+</li>
+<li><p>RIP: 路由信息协议</p>
+<ul>
+<li><p>定义：是一种分布式的基于距离向量的路由选择协议（每经过一个路由器，距离++）</p>
+</li>
+<li><p>距离也称跳数，if （跳数 = 16）==&gt; 不可达</p>
+</li>
+<li><p>工作原理：选择一条跳数最少（所要经过的路由器最少）的路径传输</p>
+</li>
+<li><p>特点：</p>
+<ul>
+<li><p>仅和相邻路由交换信息</p>
+</li>
+<li><p>交换的信息为主自己的所有信息，即交换现在的路由表</p>
+</li>
+<li><p>固定时间间隔交换</p>
+</li>
+<li><p>好消息传的快，坏消息传得慢</p>
+</li>
+<li><p>实现简单，开销小</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>OSPF：开放最短路径优先</p>
+<ul>
+<li><p>使用分布式的链路状态协议</p>
+<ul>
+<li><p>采用洪泛法，向本AS中所有路由发送信息</p>
+</li>
+<li><p>发送的信息是与之相邻的所有路由器的链路状态</p>
+</li>
+<li><p>发送的触发条件为链路状态改变</p>
+</li>
+</ul>
+</li>
+<li><p>分组类型</p>
+<ul>
+<li><p>类型1：问候分组（Hello） ==&gt; 用来和相邻路由建立连接</p>
+</li>
+<li><p>类型2：数据库描述分组（DD） ==&gt; 把自己链路状态数据库中所有链路状态项目的详细信息给邻站</p>
+</li>
+<li><p>类型3：链路状态请求分组（LSR） ==&gt; 向对方请求发送链路状态的详细信息</p>
+</li>
+<li><p>类型4：链路状态更新分组（LSU） ==&gt; 用洪泛法对全网更新链路状态</p>
+</li>
+<li><p>类型5：链路状态确认分组（LSA） ==&gt; 对链路状态更新的确认</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>3、外部网关协议 （EGP）</p>
+<ul>
+<li><p>定义： 多个自治系统内进行信息传递时使用的路由选择协议</p>
+</li>
+<li><p>边界网关协议 （BGP）</p>
+<ul>
+<li><p>寻找一条能到达目的网络的较好的路由，而非最佳路由</p>
+</li>
+<li><p>采用路径向量路由选择协议</p>
+</li>
+<li><p>报文：</p>
+<ul>
+<li><p>OPEN（打开）报文</p>
+</li>
+<li><p>UPDATE（更新）报文</p>
+</li>
+<li><p>KEEPALIVE（保活）报文</p>
+</li>
+<li><p>NOTIFICATION（通知）报文</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<!-- >网际组管理协议IGMP -->
+
+<blockquote>
+<p>虚拟专用网VPN</p>
+</blockquote>
+<blockquote>
+<p>网络地址转换NAT</p>
+</blockquote>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2019/07/25/知识汇总/计算机网络/OSIFour/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            OSI之传输层
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/07/22/知识汇总/计算机网络/OSIOne/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">OSI模型之物理层</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <!--侧边栏关于自己的i第一个框-->
+
+<div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.webp" title="可爱的我"></img>
+    <h3 class="avatar-name">
+      
+        小火炉
+      
+    </h3>
+    <p class="avatar-slogan">
+      看似寻常最奇崛,成如容易却艰辛。
+    </p>
+  </div>
+</div>
+
+
+  
+    <!--分类-->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/个人随笔/">个人随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术问题/">技术问题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/知识汇总/">知识汇总</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/错题汇总/">错题汇总</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LINUX/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VUE-JS/">Vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人随笔/">个人随笔</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术问题/">技术问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法分析与设计/">算法分析与设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/综合试题/">综合试题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    <!--侧边栏边框中内容设置 -->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    <!--Recent Post边框-->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/25/错题汇总/综合试题/恒生准备/">准备</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/20/知识汇总/ES6/性质/">ES6特性</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/17/知识汇总/ES6/paomiseTwo/">Promise(二)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/17/知识汇总/ES6/promiseOne/">Promise(一)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/15/个人随笔/面经/pack/">Webpack和npm</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+      <div class="widget-box">
+    <h3 class="widget-title">友链</h3>
+    <div class="widget">
+      
+        <a style="display: block;" href="https://yiluyanxia.github.io/" title target='_blank'
+        >一路烟霞</a>
+      
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 Bammy &nbsp;&nbsp;
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">不蒜子告之   阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script>
+if (!window.jQuery) {
+var script = document.createElement('script');
+script.src = "/js/jquery-2.0.3.min.js";
+document.body.write(script);
+}
+</script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">博客</a>
+  
+    <a href="/me" class="mobile-nav-link">关于我</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Oracle之体系结构 | MudStove’s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="引言本文为对Oracle数据库系统的体系结构的一些归纳总结。">
+<meta name="keywords" content="数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle之体系结构">
+<meta property="og:url" content="http://yoursite.com/2019/07/11/知识汇总/数据库/method/index.html">
+<meta property="og:site_name" content="MudStove’s Blog">
+<meta property="og:description" content="引言本文为对Oracle数据库系统的体系结构的一些归纳总结。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2019-10-01T02:49:07.341Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Oracle之体系结构">
+<meta name="twitter:description" content="引言本文为对Oracle数据库系统的体系结构的一些归纳总结。">
+  
+    <link rel="alternate" href="/atom.xml" title="MudStove’s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.webp">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+  <script>
+  let antiquityStorage = window.sessionStorage.getItem('antiquitySessionStorage');
+  if (antiquityStorage == '' || antiquityStorage == null) {
+    var antiquityLoader = '<div id="loaderbox"><div class="loader"><div class="load-roll"><div class="load-top"></div><div class="load-right"></div><div class="load-bottom"></div></div></div></div>';
+    document.write(antiquityLoader);
+    document.body.style.overflow = 'hidden'
+  }
+  </script>
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="可爱的我">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <!--<img src="../../sources/images/首页.png"></img>-->
+        <a class="nav-item" href="/"
+         title
+        
+        >首页</a>
+      
+        <!--<img src="../../sources/images/博客.png"></img>-->
+        <a class="nav-item" href="/archives"
+         title
+        
+        >博客</a>
+      
+        <!--<img src="../../sources/images/关于我.png"></img>-->
+        <a class="nav-item" href="/me"
+         title
+        
+        >关于我</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-left">
+        <section id="main"><article id="post-知识汇总/数据库/method" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      Oracle之体系结构
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/07/11/知识汇总/数据库/method/" class="article-date">
+  <time datetime="2019-07-11T10:27:36.000Z" itemprop="datePublished">2019-07-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/知识汇总/">知识汇总</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>本文为对Oracle数据库系统的体系结构的一些归纳总结。</p>
+<a id="more"></a>
+
+<blockquote>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3></blockquote>
+<hr>
+<ul>
+<li>实例：一组Oracle后台正在运行的程序以及在服务器分配的共享内存区</li>
+<li>数据库： 保存数据的一些文件集合</li>
+<li>完整Oracle数据库系统的组成：实例+数据库          </li>
+<li>系统全局区（SGA）:Oracle中很大的一块内存块  </li>
+<li>操作实现原理： 1、用户 —-&gt; 实例  —-&gt; 数据库;          2、数据库 —-&gt; 实例 —-&gt; 用户</li>
+<li>服务器处理请求方式 = 专用服务器连接 + 共享服务器连接</li>
+<li>专用服务器连接：每个用户请求一个专用服务器进程为其提供服务。二者一对一联系且“同生共死”</li>
+<li>共享服务器请求：数据库保持一定数量的服务器进程。当用户请求服务时，首先连接到一个特殊进程【调度程序】，其次该程序再为每个用户分配服务进程以提供服务。</li>
+</ul>
+<blockquote>
+<h3 id="逻辑存储结构"><a href="#逻辑存储结构" class="headerlink" title="逻辑存储结构"></a>逻辑存储结构</h3></blockquote>
+<hr>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">|---数据库1</span><br><span class="line">  |---表空间1</span><br><span class="line">    |---段1</span><br><span class="line">      |---盘区1</span><br><span class="line">        |---数据块1  #数据块：存储空间的最小单元，也是执行I/O操作的最小单位</span><br><span class="line">        |---数据块2  #数据库 = 头部信息区(快头部 + 表目录 + 行目录) + 存储区(空闲空间 + 行空间)</span><br><span class="line">         ...</span><br><span class="line">        |---数据块n</span><br><span class="line">      |---盘区2    #盘区: 存储分配的最小单位,当一个盘区空间用完后,系统自动分配新盘区</span><br><span class="line">       ...</span><br><span class="line">      |---盘区n   </span><br><span class="line">    |---段2   #段:只属于一个特定的数据库对象,分为几种类型: 数据段 | 索引段 | 临时段 | 回退段 | LOB段</span><br><span class="line">     ...</span><br><span class="line">    |---段n</span><br><span class="line">  |----表空间2   #表空间分类: SYSTEM表空间(存储数据字典和内部系统表基表) | 撤销表空间 | 临时表空间</span><br><span class="line">   ....</span><br><span class="line">  |----表空间n</span><br><span class="line">|--数据库2</span><br><span class="line"> ...</span><br><span class="line">|--数据库n</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<h3 id="物理存储结构"><a href="#物理存储结构" class="headerlink" title="物理存储结构"></a>物理存储结构</h3></blockquote>
+<hr>
+<p>1、物理存储结构 = 数据文件 + 控制文件 + 其他文件</p>
+<p>2、文件操作:读取文件时先从数据缓冲区读取,或没有成功,则读取文件同时保存一份至数据缓冲区;修改数据时先修改保存至数据缓冲区,之后再由后台进程将数据写入数据文件</p>
+<blockquote>
+<h3 id="逻辑存储结构与物理存储结构关系"><a href="#逻辑存储结构与物理存储结构关系" class="headerlink" title="逻辑存储结构与物理存储结构关系"></a>逻辑存储结构与物理存储结构关系</h3></blockquote>
+<h4 id="一个表空间由一个或多个数据文件组成-gt-表空间-数据文件之和"><a href="#一个表空间由一个或多个数据文件组成-gt-表空间-数据文件之和" class="headerlink" title="一个表空间由一个或多个数据文件组成 ==&gt; 表空间= 数据文件之和"></a>一个表空间由一个或多个数据文件组成 ==&gt; 表空间= 数据文件之和</h4><p>增大存储空间(表空间)方法:</p>
+<ul>
+<li>追加新的数据文件</li>
+<li>扩大现有的数据文件或让数据文件的大小自增</li>
+</ul>
+<blockquote>
+<h3 id="实例的内存结构"><a href="#实例的内存结构" class="headerlink" title="实例的内存结构"></a>实例的内存结构</h3></blockquote>
+<hr>
+<h4 id="内存结构-系统全局区-SGA-程序全局区-PGA"><a href="#内存结构-系统全局区-SGA-程序全局区-PGA" class="headerlink" title="内存结构 = 系统全局区(SGA) + 程序全局区(PGA)"></a>内存结构 = 系统全局区(SGA) + 程序全局区(PGA)</h4><p>1、SGA: 所有用户共享的内存区域</p>
+<p>2、SGA = 数据缓冲区 + 共享池 + 重做日志缓存 + Java池 + 大型池等</p>
+<p>3、PGA: 保存特定程序服务进程数据和控制信息的内存结构,结构非共享,只有特定的服务进程才能访问</p>
+<p>4、PGA = 私有SQL工作区 + 会话内存区</p>
+<blockquote>
+<h3 id="数据字典"><a href="#数据字典" class="headerlink" title="数据字典"></a>数据字典</h3></blockquote>
+<hr>
+<p>1、是数据库系统的核心组件,任何用户都无法对其进行修改,唯有Oracle系统可以负责</p>
+<p>2、用户所适应到的数据字典视图大致分为三类</p>
+<ul>
+<li>USER视图: 以”USER_”开头的视图,尽自己可见</li>
+<li>ALL视图: 以”ALL_”开头视图,本人也可见</li>
+<li>DBA视图: 以”DBA_”开头视图,记录了所有信息</li>
+</ul>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2019/07/11/错题汇总/数据库/2019-07-11/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            错题一
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/07/09/个人随笔/Blog1/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">搭建自己的博客(上)~</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <!--侧边栏关于自己的i第一个框-->
+
+<div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.webp" title="可爱的我"></img>
+    <h3 class="avatar-name">
+      
+        小火炉
+      
+    </h3>
+    <p class="avatar-slogan">
+      看似寻常最奇崛,成如容易却艰辛。
+    </p>
+  </div>
+</div>
+
+
+  
+    <!--分类-->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/个人随笔/">个人随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术问题/">技术问题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/知识汇总/">知识汇总</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/错题汇总/">错题汇总</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LINUX/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VUE-JS/">Vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人随笔/">个人随笔</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术问题/">技术问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法分析与设计/">算法分析与设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/综合试题/">综合试题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    <!--侧边栏边框中内容设置 -->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    <!--Recent Post边框-->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/25/错题汇总/综合试题/恒生准备/">准备</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/20/知识汇总/ES6/性质/">ES6特性</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/17/知识汇总/ES6/paomiseTwo/">Promise(二)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/17/知识汇总/ES6/promiseOne/">Promise(一)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/15/个人随笔/面经/pack/">Webpack和npm</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+      <div class="widget-box">
+    <h3 class="widget-title">友链</h3>
+    <div class="widget">
+      
+        <a style="display: block;" href="https://yiluyanxia.github.io/" title target='_blank'
+        >一路烟霞</a>
+      
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 Bammy &nbsp;&nbsp;
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">不蒜子告之   阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script>
+if (!window.jQuery) {
+var script = document.createElement('script');
+script.src = "/js/jquery-2.0.3.min.js";
+document.body.write(script);
+}
+</script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">博客</a>
+  
+    <a href="/me" class="mobile-nav-link">关于我</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+</body>
+</html>

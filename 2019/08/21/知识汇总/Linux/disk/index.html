@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>磁盘管理 | MudStove’s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="本文介绍一些磁盘和文件常用命令">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="磁盘管理">
+<meta property="og:url" content="http://yoursite.com/2019/08/21/知识汇总/Linux/disk/index.html">
+<meta property="og:site_name" content="MudStove’s Blog">
+<meta property="og:description" content="本文介绍一些磁盘和文件常用命令">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2019-10-05T10:26:46.257Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="磁盘管理">
+<meta name="twitter:description" content="本文介绍一些磁盘和文件常用命令">
+  
+    <link rel="alternate" href="/atom.xml" title="MudStove’s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.webp">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+  <script>
+  let antiquityStorage = window.sessionStorage.getItem('antiquitySessionStorage');
+  if (antiquityStorage == '' || antiquityStorage == null) {
+    var antiquityLoader = '<div id="loaderbox"><div class="loader"><div class="load-roll"><div class="load-top"></div><div class="load-right"></div><div class="load-bottom"></div></div></div></div>';
+    document.write(antiquityLoader);
+    document.body.style.overflow = 'hidden'
+  }
+  </script>
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="可爱的我">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <!--<img src="../../sources/images/首页.png"></img>-->
+        <a class="nav-item" href="/"
+         title
+        
+        >首页</a>
+      
+        <!--<img src="../../sources/images/博客.png"></img>-->
+        <a class="nav-item" href="/archives"
+         title
+        
+        >博客</a>
+      
+        <!--<img src="../../sources/images/关于我.png"></img>-->
+        <a class="nav-item" href="/me"
+         title
+        
+        >关于我</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-left">
+        <section id="main"><article id="post-知识汇总/Linux/disk" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      磁盘管理
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/08/21/知识汇总/Linux/disk/" class="article-date">
+  <time datetime="2019-08-21T08:12:12.000Z" itemprop="datePublished">2019-08-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/知识汇总/">知识汇总</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LINUX/">Linux</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <p>本文介绍一些磁盘和文件常用命令</p>
+<a id="more"></a>
+
+<p>1、磁盘管理</p>
+<ul>
+<li><p>查看磁盘空间使用情况： df [option]…[File]</p>
+<ul>
+<li><p>-a: 所有已安装文件系统磁盘的空间使用情况</p>
+</li>
+<li><p>-T：显示文件系统类型</p>
+</li>
+</ul>
+</li>
+<li><p>显示磁盘上文件或目录的大小：  du [option]…[File]</p>
+<ul>
+<li><p>-a: 目录中所有文件的空间占用情况</p>
+</li>
+<li><p>-h：以容易理解的方式显示出文件或目录的大小</p>
+</li>
+<li><p>-S：显示该目录直接的空间占用情况，不包括子目录的情况</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>2、文件与目录管理</p>
+<ul>
+<li><p>目录切换：</p>
+<ul>
+<li><p>进入目录：cd 文件名</p>
+</li>
+<li><p>退出目录：cd..</p>
+</li>
+</ul>
+</li>
+<li><p>显示当前目录： pwd [option]</p>
+</li>
+<li><p>新建目录： mkdir [option] 目录列表</p>
+<ul>
+<li><p>mkdir不能简写为md</p>
+</li>
+<li><p>-m:设置目录的权限  ==&gt;  mkdir -m 777 目录名</p>
+</li>
+<li><p>-p:若所要建立的目录的上级目录不存在，则一并建立</p>
+</li>
+<li><p>-v: 显示命令执行的详细过程</p>
+</li>
+</ul>
+</li>
+<li><p>文件或目录复制  cp [option] 需要复制的文件/目录 复制的目的地</p>
+</li>
+<li><p>移动文件或目录  mv [option] 需要复制的文件/目录 复制的目的地</p>
+</li>
+<li><p>删除空目录   rmdir [option]… 要删除的目录列表</p>
+</li>
+<li><p>删除文件或目录  rm [option] 文件名/目录</p>
+<ul>
+<li><p>用rm命令删除，option一定要有-r/-R：级联删除（子目录/子文件同时删除）</p>
+</li>
+<li><p>-f: 强制删除</p>
+</li>
+<li><p>-i: 删除前需要用户确认</p>
+</li>
+</ul>
+</li>
+<li><p>显示目录内容  ls [option] 文件名/目录</p>
+</li>
+</ul>
+<p>3、查找文件</p>
+<ul>
+<li><p>命令行方式：  </p>
+<ul>
+<li><p>基本用法： find 查找路径 文件名/目录名</p>
+</li>
+<li><p>完整用法： find 查找路径 条件/表达式（逻辑表达式/命令选项/测试条件/后续动作）</p>
+</li>
+</ul>
+</li>
+<li><p>图形方式</p>
+</li>
+</ul>
+<p>4、修改文件权限</p>
+<ul>
+<li><p>命令行方式：  </p>
+<ul>
+<li><p>chmod [option]…模式 [模式] 文件名   eg:  chmod u=rwx g=rx o=x 文件名</p>
+<ul>
+<li>u：所有者  g: 所有组   o:其他人</li>
+</ul>
+</li>
+<li><p>chmod [option]…8进制模式 文件名   eg: chmod 751 文件名</p>
+</li>
+<li><p>chmod [option]…–reference = 被参考权限的文件或目录 文件名  【不常用】</p>
+</li>
+</ul>
+</li>
+<li><p>图形方式</p>
+</li>
+</ul>
+<p>5、查看文件内容</p>
+<ul>
+<li><p>cat命令  cat [option]…文件名(可以多个文件)</p>
+<ul>
+<li><p>text1 &gt;&gt; text2  : 文件追加</p>
+</li>
+<li><p>text1 &gt; text2  : 文件覆盖</p>
+</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">栗子：把文件file1,file2合并成file3</span><br><span class="line"></span><br><span class="line">$ cat file1 file2 &gt; file3</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>more命令</p>
+<ul>
+<li><p>适用于查看大型文件因为可以分屏显示</p>
+</li>
+<li><p>more [option] 文件名</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>6、文件压缩与解压缩</p>
+<ul>
+<li><p>命令行方式</p>
+<ul>
+<li><p>compress:</p>
+<ul>
+<li><p>标准的压缩命令，压缩后原属性保持不变，扩展名为  .Z</p>
+</li>
+<li><p>-f: 强制压缩，不管需要压缩的文件是什么格式都可以被压缩为 .Z 文件</p>
+</li>
+<li><p>-v:显示压缩比率</p>
+</li>
+<li><p>-r: 递归压缩，子目录等也一起压缩</p>
+</li>
+<li><p>compress [option] [文件名或文件类型]</p>
+</li>
+</ul>
+</li>
+<li><p>uncompress</p>
+<ul>
+<li><p>标准的解压缩命令，是指向compress程序的符号链接文件，压缩后文件属性保持不变</p>
+</li>
+<li><p>uncompress [option] [文件名或文件类型]</p>
+</li>
+</ul>
+</li>
+<li><p>gzip</p>
+<ul>
+<li><p>压缩比率高，所有经常被使用；产生 .gz 格式文件</p>
+</li>
+<li><p>由于gunzip为gzip的硬链接，所以gzip本身也可以解压缩</p>
+</li>
+<li><p>gzip [option] [文件名或文件类型]</p>
+</li>
+</ul>
+</li>
+<li><p>gunzip</p>
+<ul>
+<li>gunzip [option] [文件名或文件类型]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>图形方式</p>
+</li>
+</ul>
+<p>7、文件备份</p>
+<ul>
+<li><p>tar命令  tar [option] [文件名或文件类型]</p>
+</li>
+<li><p>dump命令: 支持多级备份</p>
+</li>
+</ul>
+<p>8、简单的信息处理</p>
+<ul>
+<li><p>wc命令</p>
+<ul>
+<li><p>显示文件列表中各文件的行数、词数等信息</p>
+</li>
+<li><p>wc [option] [文件名或文件类型]</p>
+</li>
+</ul>
+</li>
+<li><p>grep命令</p>
+<ul>
+<li><p>查找文件中特定信息</p>
+</li>
+<li><p>grep 特定信息 [文件名或文件类型]</p>
+</li>
+</ul>
+</li>
+<li><p>sort命令</p>
+<ul>
+<li><p>将文本文件中内容加以排序，且可以输出</p>
+</li>
+<li><p>sort [option] [文件名或文件类型]</p>
+</li>
+</ul>
+</li>
+<li><p>pr命令</p>
+<ul>
+<li><p>修改文件中内容格式并输出</p>
+</li>
+<li><p>pr [option] [文件名或文件类型]</p>
+</li>
+</ul>
+</li>
+<li><p>cut命令</p>
+<ul>
+<li><p>可选取并输出特定范围的文件内容</p>
+</li>
+<li><p>cut [option] [文件名或文件类型]</p>
+</li>
+</ul>
+</li>
+<li><p>tr命令</p>
+<ul>
+<li>替换字符、压缩重复字符、删除字符或字符串</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2019/08/22/知识汇总/Linux/proces/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            进程管理
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/08/20/知识汇总/Linux/file/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">文件管理</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <!--侧边栏关于自己的i第一个框-->
+
+<div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.webp" title="可爱的我"></img>
+    <h3 class="avatar-name">
+      
+        小火炉
+      
+    </h3>
+    <p class="avatar-slogan">
+      看似寻常最奇崛,成如容易却艰辛。
+    </p>
+  </div>
+</div>
+
+
+  
+    <!--分类-->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/个人随笔/">个人随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术问题/">技术问题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/知识汇总/">知识汇总</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/错题汇总/">错题汇总</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LINUX/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VUE-JS/">Vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人随笔/">个人随笔</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术问题/">技术问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法分析与设计/">算法分析与设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/综合试题/">综合试题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    <!--侧边栏边框中内容设置 -->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    <!--Recent Post边框-->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/25/错题汇总/综合试题/恒生准备/">准备</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/20/知识汇总/ES6/性质/">ES6特性</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/17/知识汇总/ES6/paomiseTwo/">Promise(二)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/17/知识汇总/ES6/promiseOne/">Promise(一)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/15/个人随笔/面经/pack/">Webpack和npm</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+      <div class="widget-box">
+    <h3 class="widget-title">友链</h3>
+    <div class="widget">
+      
+        <a style="display: block;" href="https://yiluyanxia.github.io/" title target='_blank'
+        >一路烟霞</a>
+      
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 Bammy &nbsp;&nbsp;
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">不蒜子告之   阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script>
+if (!window.jQuery) {
+var script = document.createElement('script');
+script.src = "/js/jquery-2.0.3.min.js";
+document.body.write(script);
+}
+</script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">博客</a>
+  
+    <a href="/me" class="mobile-nav-link">关于我</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+</body>
+</html>

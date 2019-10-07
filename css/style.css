@@ -120,7 +120,7 @@ body{
   line-height: 1.5;
   color: #333;
   background: #FAF3E1;
-  font-size: 14px;
+  font-size: 16px;
   font-family: Arial, Roboto, "Droid Sans", "Hiragino Sans GB", "Microsoft YaHei", "Simsun", STXihei, "sans-serif";
 }
 
@@ -154,7 +154,7 @@ a img {
   height: 0;
   display: table;
   visibility: hidden;
-  font-size: 0;
+  font-size: 16px;
 }
 
 .clearfix {
@@ -448,7 +448,8 @@ html, body, #fullpage{
 }
 .avatar-slogan {
   /* writing-mode: vertical-lr; */
-  font-size: 13px;
+  font-size: 24px;
+  font-family: "华文行楷";
   margin-top: 10px;
   max-height: 200px;
 }
@@ -679,7 +680,7 @@ html, body, #fullpage{
   text-align: center;
 }
 .article-content blockquote footer {
-  font-size: 14px;
+  font-size: 16px;
   margin: 1.6em 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

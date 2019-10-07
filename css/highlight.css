@@ -22,10 +22,10 @@
 .article-content-cloud .highlight-box::before,
 .article-content-mac .highlight-box::before {
   content: attr(data-rel);
-  height: 38px;
-  line-height: 38px;
+  height: 30px;
+  line-height: 30px;
   color: #fff;
-  font-size: 14px;
+  font-size: 15px;
   position: absolute;
   top: 0;
   left: 0;
@@ -147,7 +147,7 @@
   padding: 0;
 }
 .article-content .highlight figcaption {
-  font-size: 0.85em;
+  font-size: 50em;
   color: #999;
   line-height: 1em;
   margin-bottom: 1em;

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>搭建自己的博客(上)~ | MudStove’s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="引言相信随着GitHub也越来越为人所熟知,使用GitHub Page搭建博客也是越来越普遍。现今搭建博客主要有Jekyll、Hexo两种框架，本文也是以Hexo为依托，总结一下搭建博客的主要流程">
+<meta name="keywords" content="个人随笔">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建自己的博客(上)~">
+<meta property="og:url" content="http://yoursite.com/2019/07/09/个人随笔/Blog1/index.html">
+<meta property="og:site_name" content="MudStove’s Blog">
+<meta property="og:description" content="引言相信随着GitHub也越来越为人所熟知,使用GitHub Page搭建博客也是越来越普遍。现今搭建博客主要有Jekyll、Hexo两种框架，本文也是以Hexo为依托，总结一下搭建博客的主要流程">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2019-10-07T14:19:39.370Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="搭建自己的博客(上)~">
+<meta name="twitter:description" content="引言相信随着GitHub也越来越为人所熟知,使用GitHub Page搭建博客也是越来越普遍。现今搭建博客主要有Jekyll、Hexo两种框架，本文也是以Hexo为依托，总结一下搭建博客的主要流程">
+  
+    <link rel="alternate" href="/atom.xml" title="MudStove’s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.webp">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+  <script>
+  let antiquityStorage = window.sessionStorage.getItem('antiquitySessionStorage');
+  if (antiquityStorage == '' || antiquityStorage == null) {
+    var antiquityLoader = '<div id="loaderbox"><div class="loader"><div class="load-roll"><div class="load-top"></div><div class="load-right"></div><div class="load-bottom"></div></div></div></div>';
+    document.write(antiquityLoader);
+    document.body.style.overflow = 'hidden'
+  }
+  </script>
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="可爱的我">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <!--<img src="../../sources/images/首页.png"></img>-->
+        <a class="nav-item" href="/"
+         title
+        
+        >首页</a>
+      
+        <!--<img src="../../sources/images/博客.png"></img>-->
+        <a class="nav-item" href="/archives"
+         title
+        
+        >博客</a>
+      
+        <!--<img src="../../sources/images/关于我.png"></img>-->
+        <a class="nav-item" href="/me"
+         title
+        
+        >关于我</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-left">
+        <section id="main"><article id="post-个人随笔/Blog1" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      搭建自己的博客(上)~
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/07/09/个人随笔/Blog1/" class="article-date">
+  <time datetime="2019-07-09T11:46:11.224Z" itemprop="datePublished">2019-07-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/个人随笔/">个人随笔</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/个人随笔/">个人随笔</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>相信随着GitHub也越来越为人所熟知,使用GitHub Page搭建博客也是越来越普遍。现今搭建博客主要有Jekyll、Hexo两种框架，本文也是以Hexo为依托，总结一下搭建博客的主要流程</p>
+<a id="more"></a>
+
+<h3 id="两种框架搭建特点"><a href="#两种框架搭建特点" class="headerlink" title="两种框架搭建特点"></a>两种框架搭建特点</h3><ul>
+<li>Jekyll一般和Liquid一起使用，Jekyll只是静态页面的博客形态，Liquid可以 转化成一个完整的可发布的静态网站。除此之外，Jekyll在搭建前需要电脑配置好Git 环境、Ruby 环境、包管理器 RubyGems 。由于我本身没有配置，这儿就跳过啦</li>
+<li>Hexo搭建博客的前提是需要配合Git一起使用，所有如果本地有下载Git的、怕麻烦的建议可以用此框架，搭建起来还是较为轻松的。</li>
+</ul>
+<h3 id="正式搭建博客"><a href="#正式搭建博客" class="headerlink" title="正式搭建博客"></a>正式搭建博客</h3><p>1.搭建前准备：</p>
+<ul>
+<li>GitHub上注册账号</li>
+<li>本地下载Git：可参考以下代码<br><a href="https://jingyan.baidu.com/article/bea41d43a520efb4c51be623.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/bea41d43a520efb4c51be623.html</a></li>
+</ul>
+<p>2.搭建流程<br>详细过程可以参考以下地址：<a href="https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html" target="_blank" rel="noopener">https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html</a></p>
+<ul>
+<li><p>GitHub上创建仓库</p>
+</li>
+<li><p>安装Hexo</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>初始化：新建一个空文件夹，名字随意；进入文件夹，执行命令进行初始化</p>
+</li>
+<li><p>生成代码</p>
+</li>
+<li><p>启动服务<br>此段代码如下所示:</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cd  # 文件夹位置</span><br><span class="line">$ hexo init  # 初始化</span><br><span class="line">$ hexo g  # 生成</span><br><span class="line">$ hexo s  # 启动服务</span><br></pre></td></tr></table></figure></div>
+
+</li>
+</ul>
+<p>若成功执行到此意味着你几乎已经完成了，浏览器运行localhost://4000即可查看成果</p>
+<ul>
+<li><p>若是不满意默认主题的样式，可以下载其他主题来修改样式。更多主题可查看此网址<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a> ，下载方法如若不知可往下查看</p>
+</li>
+<li><p>打开文件夹，<font color="red">修改_config.yml中的theme: landscape改为theme: yilia</font></p>
+</li>
+<li><p>执行然后重新执行hexo g来重新生成。</p>
+</li>
+</ul>
+<p>如果出现一些莫名其妙的问题，可以先执行hexo clean来清理一下public的内容，然后再来重新生成和发布。</p>
+<ul>
+<li><p>修改配置：打开更根目录下_config.yml，并修改deploy的配置：</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repository: git@github.com:自己的GitHub账号/仓库名.github.io.git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>到目前为止所有本地搭建博客流程已经走完，大家可以自行查看成果了</p>
+</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s // 运行查看</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>发布<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure></div>
+
+</li>
+</ul>
+<h4 id="出现错误及注意事项"><a href="#出现错误及注意事项" class="headerlink" title="出现错误及注意事项"></a>出现错误及注意事项</h4><p>在我搭建的过程中出现了一些错误、不清楚的问题，导致在整个过程中持续了很长一段时间。因此我总结了一些心得与大家共勉。</p>
+<ul>
+<li>执行如下命令出错，错误截图所示：</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure></div>
+
+<p>解决方法：看看是不是文件夹不为空，就算时删了文件夹里的内容无济于事，最好的方法就算重建文件夹，重新来过。</p>
+<ul>
+<li>下载主题：官网找到自己满意的主题后，可以通过主题内的链接进入相应的GitHub仓库</li>
+<li>运行从GitHub中复制下来的代码<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/litten/hexo-theme-yilia.git themes</span><br></pre></td></tr></table></figure></div>
+
+</li>
+</ul>
+<p>以上就是我搭建的整个过程与收获，希望能对大家有所帮助。</p>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2019/07/11/知识汇总/数据库/method/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            Oracle之体系结构
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/07/09/个人随笔/Blog2/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">搭建自己的博客(下)~</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <!--侧边栏关于自己的i第一个框-->
+
+<div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.webp" title="可爱的我"></img>
+    <h3 class="avatar-name">
+      
+        小火炉
+      
+    </h3>
+    <p class="avatar-slogan">
+      看似寻常最奇崛,成如容易却艰辛。
+    </p>
+  </div>
+</div>
+
+
+  
+    <!--分类-->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/个人随笔/">个人随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术问题/">技术问题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/知识汇总/">知识汇总</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/错题汇总/">错题汇总</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LINUX/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VUE-JS/">Vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人随笔/">个人随笔</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术问题/">技术问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法分析与设计/">算法分析与设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/综合试题/">综合试题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    <!--侧边栏边框中内容设置 -->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    <!--Recent Post边框-->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/25/错题汇总/综合试题/恒生准备/">准备</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/20/知识汇总/ES6/性质/">ES6特性</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/17/知识汇总/ES6/paomiseTwo/">Promise(二)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/17/知识汇总/ES6/promiseOne/">Promise(一)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/15/个人随笔/面经/pack/">Webpack和npm</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+      <div class="widget-box">
+    <h3 class="widget-title">友链</h3>
+    <div class="widget">
+      
+        <a style="display: block;" href="https://yiluyanxia.github.io/" title target='_blank'
+        >一路烟霞</a>
+      
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 Bammy &nbsp;&nbsp;
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">不蒜子告之   阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script>
+if (!window.jQuery) {
+var script = document.createElement('script');
+script.src = "/js/jquery-2.0.3.min.js";
+document.body.write(script);
+}
+</script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">博客</a>
+  
+    <a href="/me" class="mobile-nav-link">关于我</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+</body>
+</html>

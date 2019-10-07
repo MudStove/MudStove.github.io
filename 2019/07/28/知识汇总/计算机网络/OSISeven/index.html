@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>OSI之应用层 | MudStove’s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="应用层协议解决多个应用进程间的通信和协同工作；本文涉及DNS、万维网和HTTP协议等">
+<meta name="keywords" content="计算机网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OSI之应用层">
+<meta property="og:url" content="http://yoursite.com/2019/07/28/知识汇总/计算机网络/OSISeven/index.html">
+<meta property="og:site_name" content="MudStove’s Blog">
+<meta property="og:description" content="应用层协议解决多个应用进程间的通信和协同工作；本文涉及DNS、万维网和HTTP协议等">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2019-09-29T09:15:00.832Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OSI之应用层">
+<meta name="twitter:description" content="应用层协议解决多个应用进程间的通信和协同工作；本文涉及DNS、万维网和HTTP协议等">
+  
+    <link rel="alternate" href="/atom.xml" title="MudStove’s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.webp">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+  <script>
+  let antiquityStorage = window.sessionStorage.getItem('antiquitySessionStorage');
+  if (antiquityStorage == '' || antiquityStorage == null) {
+    var antiquityLoader = '<div id="loaderbox"><div class="loader"><div class="load-roll"><div class="load-top"></div><div class="load-right"></div><div class="load-bottom"></div></div></div></div>';
+    document.write(antiquityLoader);
+    document.body.style.overflow = 'hidden'
+  }
+  </script>
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="可爱的我">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <!--<img src="../../sources/images/首页.png"></img>-->
+        <a class="nav-item" href="/"
+         title
+        
+        >首页</a>
+      
+        <!--<img src="../../sources/images/博客.png"></img>-->
+        <a class="nav-item" href="/archives"
+         title
+        
+        >博客</a>
+      
+        <!--<img src="../../sources/images/关于我.png"></img>-->
+        <a class="nav-item" href="/me"
+         title
+        
+        >关于我</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-left">
+        <section id="main"><article id="post-知识汇总/计算机网络/OSISeven" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      OSI之应用层
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/07/28/知识汇总/计算机网络/OSISeven/" class="article-date">
+  <time datetime="2019-07-27T22:22:18.000Z" itemprop="datePublished">2019-07-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/知识汇总/">知识汇总</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <p>应用层协议解决多个应用进程间的通信和协同工作；本文涉及DNS、万维网和HTTP协议等</p>
+<a id="more"></a>
+
+<p>1、应用层协议是基于客户服务器方式，客户和服务器均为应用进程；客户是服务请求方，服务器是服务提供方。</p>
+<p>2、域名系统DNS</p>
+<ul>
+<li><p>作用:能够用于把主机名转化成IP地址</p>
+</li>
+<li><p>域名结构 = …级域名.三级域名.二级域名.顶级域名</p>
+<p>PS1: 域名的标号由数字和英文字母组成，不区分大小写</p>
+<p>PS2：每一标号不超过63个字符，完整域名不超过255个字符</p>
+<p>PS3: 每一级域名即为一个标号</p>
+</li>
+</ul>
+<p>3、域名服务器：</p>
+<ul>
+<li><p>定义： 每一级域名都有一个域名服务器，一个服务器所负责管辖的范围就叫做“区”，每一个区设置相应的权限域名服务器</p>
+</li>
+<li><p>根域名服务器</p>
+</li>
+<li><p>顶级域名服务器</p>
+</li>
+<li><p>权限域名服务器</p>
+</li>
+<li><p>本地域名服务器</p>
+</li>
+</ul>
+<p>4、文件传送协议</p>
+<p>5、万维网</p>
+<ul>
+<li><p>定义： 是一个大规模的联机式的信息储藏所，简称Web；也是一个分布式的超媒体系统，是超文本系统的扩充</p>
+</li>
+<li><p>客户向服务器程序发送请求，服务器程序返回客户所需要的万维网文档即网页。</p>
+</li>
+<li><p>UPL： 统一资源定位符；HTML:超文本标记语言</p>
+<ul>
+<li>URL = 协议://主机:端口/主页路径 （端口可省略）</li>
+</ul>
+</li>
+<li><p>HTTP: 超文本传送协议，是面向事务、无连接、无状态的</p>
+<ul>
+<li><p>三次握手：建立连接阶段</p>
+<ul>
+<li><p>第一次：客户端向服务器发送请求报文段，其首部中：SYN=1,seq=x，并进入SYN_SEND状态，等待服务器确认。（SYN：同步序列编号）【客户端：“服务器~ 我想要建立连接”】</p>
+</li>
+<li><p>第二次：服务器收到并确认,若同意请求，则发送确认报文段，首部中SYN=1,ACK=1,ack=x+1,seq=y 【服务器：“可以”】</p>
+</li>
+<li><p>第三次：客户端收到确认报文之后，通知上层应用进程连接已建立，并向服务器发出确认报文，其首部：ACK=1,ack=y+1。当服务器收到客户端的确认报文之后，也通知其上层应用进程连接已建立。 【客户端：“已告诉应用层连接建立了”】【服务器：“我也已经告诉应用层连接建立了”】</p>
+</li>
+</ul>
+</li>
+<li><p>四次挥手：连接释放阶段</p>
+<ul>
+<li><p>第一次：数据传输结束以后，客户端的应用进程发出连接释放报文段，并停止发送数据，其首部：FIN=1,seq=u 【客户端：“我的数据传完了”】</p>
+</li>
+<li><p>第二次：服务器端收到连接释放报文段之后，发出确认报文，其首部：ack=u+1,seq=v。此时本次连接就进入了半关闭状态，客户端不再向服务器发送数据。而服务器端仍会继续发送 【服务器：“好的，那我关闭你向我传递数据的连接啦，不过我还没传完，客户端你先别关闭我向你传递数据的连接噢”】</p>
+</li>
+<li><p>第三次：若服务器已经没有要向客户端发送的数据，其应用进程就通知服务器释放TCP连接。这个阶段服务器所发出的最后一个报文的首部应为：FIN=1,ACK=1,seq=w,ack=u+1 【服务器：“客户端我传完啦，你可以关闭连接了”】</p>
+</li>
+<li><p>第四次：客户端收到连接释放报文段之后，必须发出确认：ACK=1,seq=u+1,ack=w+1。 再经过2MSL(最长报文端寿命)后，本次TCP连接真正结束，通信双方完成了他们的告别 【客户端：“好的收到，连接2MSL后将关闭”】</p>
+</li>
+</ul>
+</li>
+<li><p>服务器代理</p>
+</li>
+<li><p>报文：</p>
+<ul>
+<li><p>分类：请求报文 、 响应报文</p>
+</li>
+<li><p>组成 = 开始行（区分请求报文和响应报文） + 首部行 + 实际主体</p>
+</li>
+<li><p>请求报文的方法：</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法（操作）</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>option</td>
+<td>请求一些选项的信息</td>
+</tr>
+<tr>
+<td>get</td>
+<td>读取URL所标志的信息</td>
+</tr>
+<tr>
+<td>post</td>
+<td>给服务器添加信息</td>
+</tr>
+<tr>
+<td>head</td>
+<td>读取URL所标志的信息首部</td>
+</tr>
+<tr>
+<td>put</td>
+<td>在指明的URL下存储文档</td>
+</tr>
+<tr>
+<td>delete</td>
+<td>删除UPL所标志的资源</td>
+</tr>
+<tr>
+<td>trace</td>
+<td>用来进行回环测试的请求报文</td>
+</tr>
+<tr>
+<td>connect</td>
+<td>用于代理服务器</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>post和get的区别</p>
+<p>| get | post<br>-|-|-<br>传输 | 明文传输，可见参数和值 | 不可见参数和值<br>安全性 | 低 | 高<br>传输数据 | 少量数据，IE下为255个字符 | 大量数据，值可配置<br>提交原理 | 提交的数据间是独立的 | 将数据转化成XML格式提交<br>灵活性 | 灵活，只要有页面跳转就可以传送数据 | 不灵活</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2019/07/29/知识汇总/算法分析与设计/DP/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            动态规划
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/07/26/知识汇总/计算机网络/IPv4_6/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">IPv4与IPv6</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <!--侧边栏关于自己的i第一个框-->
+
+<div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.webp" title="可爱的我"></img>
+    <h3 class="avatar-name">
+      
+        小火炉
+      
+    </h3>
+    <p class="avatar-slogan">
+      看似寻常最奇崛,成如容易却艰辛。
+    </p>
+  </div>
+</div>
+
+
+  
+    <!--分类-->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/个人随笔/">个人随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术问题/">技术问题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/知识汇总/">知识汇总</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/错题汇总/">错题汇总</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LINUX/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VUE-JS/">Vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人随笔/">个人随笔</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术问题/">技术问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法分析与设计/">算法分析与设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/综合试题/">综合试题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    <!--侧边栏边框中内容设置 -->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    <!--Recent Post边框-->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/25/错题汇总/综合试题/恒生准备/">准备</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/20/知识汇总/ES6/性质/">ES6特性</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/17/知识汇总/ES6/paomiseTwo/">Promise(二)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/17/知识汇总/ES6/promiseOne/">Promise(一)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/15/个人随笔/面经/pack/">Webpack和npm</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+      <div class="widget-box">
+    <h3 class="widget-title">友链</h3>
+    <div class="widget">
+      
+        <a style="display: block;" href="https://yiluyanxia.github.io/" title target='_blank'
+        >一路烟霞</a>
+      
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 Bammy &nbsp;&nbsp;
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">不蒜子告之   阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script>
+if (!window.jQuery) {
+var script = document.createElement('script');
+script.src = "/js/jquery-2.0.3.min.js";
+document.body.write(script);
+}
+</script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">博客</a>
+  
+    <a href="/me" class="mobile-nav-link">关于我</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+</body>
+</html>

@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>shell编程 | MudStove’s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="本文简单涉及了vi编辑器与shell">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shell编程">
+<meta property="og:url" content="http://yoursite.com/2019/08/23/知识汇总/Linux/shell/index.html">
+<meta property="og:site_name" content="MudStove’s Blog">
+<meta property="og:description" content="本文简单涉及了vi编辑器与shell">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2019-10-05T07:21:53.086Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="shell编程">
+<meta name="twitter:description" content="本文简单涉及了vi编辑器与shell">
+  
+    <link rel="alternate" href="/atom.xml" title="MudStove’s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.webp">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+  <script>
+  let antiquityStorage = window.sessionStorage.getItem('antiquitySessionStorage');
+  if (antiquityStorage == '' || antiquityStorage == null) {
+    var antiquityLoader = '<div id="loaderbox"><div class="loader"><div class="load-roll"><div class="load-top"></div><div class="load-right"></div><div class="load-bottom"></div></div></div></div>';
+    document.write(antiquityLoader);
+    document.body.style.overflow = 'hidden'
+  }
+  </script>
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="可爱的我">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <!--<img src="../../sources/images/首页.png"></img>-->
+        <a class="nav-item" href="/"
+         title
+        
+        >首页</a>
+      
+        <!--<img src="../../sources/images/博客.png"></img>-->
+        <a class="nav-item" href="/archives"
+         title
+        
+        >博客</a>
+      
+        <!--<img src="../../sources/images/关于我.png"></img>-->
+        <a class="nav-item" href="/me"
+         title
+        
+        >关于我</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-left">
+        <section id="main"><article id="post-知识汇总/Linux/shell" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      shell编程
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/08/23/知识汇总/Linux/shell/" class="article-date">
+  <time datetime="2019-08-22T23:26:55.000Z" itemprop="datePublished">2019-08-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/知识汇总/">知识汇总</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LINUX/">Linux</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <p>本文简单涉及了vi编辑器与shell</p>
+<a id="more"></a>
+
+<blockquote>
+<p>vi编辑器</p>
+</blockquote>
+<hr>
+<p>1、简介</p>
+<ul>
+<li><p>使用原因</p>
+<ul>
+<li><p>有些情况下能使用的只有vi编辑器</p>
+</li>
+<li><p>功能强大，使用很方便</p>
+</li>
+<li><p>能很好的使用正则表达式，提高工作效率</p>
+</li>
+</ul>
+</li>
+<li><p>工作模式和特点</p>
+<ul>
+<li><p>可编辑无格式的文本文件</p>
+</li>
+<li><p>是交互式的文本编辑器，没有菜单，只有命令</p>
+</li>
+<li><p>只是文本编辑器，不能用于排版</p>
+</li>
+</ul>
+</li>
+<li><p>三种模式： 文本编辑模式 、 命令模式、 行编辑模式</p>
+<ul>
+<li><p>文本编辑模式–&gt; 命令模式   by Esc键 ；  命令模式–&gt;文本编辑模式  by A\I\S\O\C等命令</p>
+</li>
+<li><p>行编辑模式–&gt; 命令模式   by 执行非退出命令 ；  命令模式–&gt;行编辑模式  by “：”键</p>
+</li>
+</ul>
+</li>
+<li><p>vi的启动和退出</p>
+<ul>
+<li><p>启动：vi [option] 文件名/文件格式</p>
+</li>
+<li><p>保存与退出：</p>
+<ul>
+<li><p>保存文件：  :w</p>
+</li>
+<li><p>强制保存文件：  :w!</p>
+</li>
+<li><p>保存文件后退出：  :q</p>
+</li>
+<li><p>不保存文件并强制后退出：  :q!</p>
+</li>
+<li><p>保存文件并退出：  :wq</p>
+</li>
+<li><p>打开多个文件编辑：  :a</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>命令模式下基本命令</p>
+<ul>
+<li>定位光标</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>w</td>
+<td>光标移到下一个单词的第一个字符</td>
+</tr>
+<tr>
+<td>W</td>
+<td>光标移到后面第二个单词的第一个字符</td>
+</tr>
+<tr>
+<td>e 或 E</td>
+<td>光标移到下一个单词的最后一个字符</td>
+</tr>
+<tr>
+<td>b 或 B</td>
+<td>光标移到前一个单词的第一个字符</td>
+</tr>
+<tr>
+<td>/string</td>
+<td>光标后移到string字符串的第一个字符处</td>
+</tr>
+<tr>
+<td>? string</td>
+<td>光标前移到string字符串的第一个字符处</td>
+</tr>
+<tr>
+<td>$</td>
+<td>光标移到本行的最后一个字符处</td>
+</tr>
+<tr>
+<td>Ctrl+ b</td>
+<td>光标移到本行的第一个字符处</td>
+</tr>
+</tbody></table>
+<ul>
+<li>添加和插入</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>i</td>
+<td>光标前插入字符</td>
+</tr>
+<tr>
+<td>I</td>
+<td>当前行的行头插入字符</td>
+</tr>
+<tr>
+<td>a</td>
+<td>光标后插入字符</td>
+</tr>
+<tr>
+<td>A</td>
+<td>当前行的行尾插入字符</td>
+</tr>
+<tr>
+<td>o</td>
+<td>当前行的行后插入新行</td>
+</tr>
+<tr>
+<td>O</td>
+<td>当前行的行前插入新行</td>
+</tr>
+</tbody></table>
+<ul>
+<li>删除</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>x</td>
+<td>删除光标所在位置字符，并且光标移动到下一个字符</td>
+</tr>
+<tr>
+<td>X</td>
+<td>删除光标所在位置的前一个字符，并且光标不移动</td>
+</tr>
+<tr>
+<td>D</td>
+<td>删除光标所在位置及其之后字符，并且光标移动到行尾</td>
+</tr>
+<tr>
+<td>d+d</td>
+<td>删除光标所在行，并且光标移动到下一行</td>
+</tr>
+<tr>
+<td>d+w</td>
+<td>删除光标所在位置及其下一单词间字符，并且光标移动到下一单词的第一个字符处</td>
+</tr>
+</tbody></table>
+<ul>
+<li>修改</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>s</td>
+<td></td>
+</tr>
+<tr>
+<td>S</td>
+<td></td>
+</tr>
+<tr>
+<td>c+c</td>
+<td></td>
+</tr>
+<tr>
+<td>C 或 c $</td>
+<td></td>
+</tr>
+<tr>
+<td>r</td>
+<td></td>
+</tr>
+<tr>
+<td>R</td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>查找</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/ + 正则表达式</td>
+<td>向后查找</td>
+</tr>
+<tr>
+<td>? + 正则表达式</td>
+<td>向前查找</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>行编辑命令</p>
+<ul>
+<li><p>行编辑命令地址</p>
+</li>
+<li><p>执行shell命令</p>
+</li>
+<li><p>从文件中读取    :: r 文件名</p>
+</li>
+<li><p>将指定内容写入文件</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>shell</p>
+</blockquote>
+<hr>
+<p>1、概述</p>
+<ul>
+<li><p>是什么： 是一组介于用户与Linux系统内核间的系统程序，一旦用户登录系统，shell就被装入内存中直到用户退出登录为止</p>
+</li>
+<li><p>启动shell : 登录时启动 、 交互式启动</p>
+</li>
+<li><p>退出shell： exit命令实现</p>
+</li>
+</ul>
+<p>2、功能</p>
+<ul>
+<li><p>命令行解释</p>
+</li>
+<li><p>保留字</p>
+</li>
+<li><p>通配符</p>
+</li>
+<li><p>访问和处理程序及命令</p>
+</li>
+<li><p>文件处理、输入/输出重定向和管道</p>
+</li>
+<li><p>命令组合</p>
+</li>
+<li><p>命令替换</p>
+</li>
+<li><p>变量维护</p>
+</li>
+<li><p>环境配置</p>
+</li>
+<li><p>shell编程</p>
+</li>
+</ul>
+<p>3、常用的shell</p>
+<ul>
+<li>持续更新中</li>
+</ul>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2019/08/23/知识汇总/操作系统/base/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            概念集锦
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/08/22/知识汇总/Linux/proces/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">进程管理</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <!--侧边栏关于自己的i第一个框-->
+
+<div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.webp" title="可爱的我"></img>
+    <h3 class="avatar-name">
+      
+        小火炉
+      
+    </h3>
+    <p class="avatar-slogan">
+      看似寻常最奇崛,成如容易却艰辛。
+    </p>
+  </div>
+</div>
+
+
+  
+    <!--分类-->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/个人随笔/">个人随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术问题/">技术问题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/知识汇总/">知识汇总</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/错题汇总/">错题汇总</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LINUX/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VUE-JS/">Vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人随笔/">个人随笔</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术问题/">技术问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法分析与设计/">算法分析与设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/综合试题/">综合试题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    <!--侧边栏边框中内容设置 -->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    <!--Recent Post边框-->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/25/错题汇总/综合试题/恒生准备/">准备</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/20/知识汇总/ES6/性质/">ES6特性</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/17/知识汇总/ES6/paomiseTwo/">Promise(二)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/17/知识汇总/ES6/promiseOne/">Promise(一)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/15/个人随笔/面经/pack/">Webpack和npm</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+      <div class="widget-box">
+    <h3 class="widget-title">友链</h3>
+    <div class="widget">
+      
+        <a style="display: block;" href="https://yiluyanxia.github.io/" title target='_blank'
+        >一路烟霞</a>
+      
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 Bammy &nbsp;&nbsp;
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">不蒜子告之   阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script>
+if (!window.jQuery) {
+var script = document.createElement('script');
+script.src = "/js/jquery-2.0.3.min.js";
+document.body.write(script);
+}
+</script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">博客</a>
+  
+    <a href="/me" class="mobile-nav-link">关于我</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+</body>
+</html>

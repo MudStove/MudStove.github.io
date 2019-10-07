@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>数据库语句合集之DML、DQL | MudStove’s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="数据库语句合集将分三大类DDL(数据定义语句)、DML（数据操纵语句）、DCL(数据控制语句)、 DQL(数据查询语句)对数据基本操作语句的进行归纳总结。本文为DML、DQL的一些基本语句。">
+<meta name="keywords" content="数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库语句合集之DML、DQL">
+<meta property="og:url" content="http://yoursite.com/2019/07/13/知识汇总/数据库/DML/index.html">
+<meta property="og:site_name" content="MudStove’s Blog">
+<meta property="og:description" content="数据库语句合集将分三大类DDL(数据定义语句)、DML（数据操纵语句）、DCL(数据控制语句)、 DQL(数据查询语句)对数据基本操作语句的进行归纳总结。本文为DML、DQL的一些基本语句。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2019-09-29T12:21:26.164Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库语句合集之DML、DQL">
+<meta name="twitter:description" content="数据库语句合集将分三大类DDL(数据定义语句)、DML（数据操纵语句）、DCL(数据控制语句)、 DQL(数据查询语句)对数据基本操作语句的进行归纳总结。本文为DML、DQL的一些基本语句。">
+  
+    <link rel="alternate" href="/atom.xml" title="MudStove’s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.webp">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+  <script>
+  let antiquityStorage = window.sessionStorage.getItem('antiquitySessionStorage');
+  if (antiquityStorage == '' || antiquityStorage == null) {
+    var antiquityLoader = '<div id="loaderbox"><div class="loader"><div class="load-roll"><div class="load-top"></div><div class="load-right"></div><div class="load-bottom"></div></div></div></div>';
+    document.write(antiquityLoader);
+    document.body.style.overflow = 'hidden'
+  }
+  </script>
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="可爱的我">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <!--<img src="../../sources/images/首页.png"></img>-->
+        <a class="nav-item" href="/"
+         title
+        
+        >首页</a>
+      
+        <!--<img src="../../sources/images/博客.png"></img>-->
+        <a class="nav-item" href="/archives"
+         title
+        
+        >博客</a>
+      
+        <!--<img src="../../sources/images/关于我.png"></img>-->
+        <a class="nav-item" href="/me"
+         title
+        
+        >关于我</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-left">
+        <section id="main"><article id="post-知识汇总/数据库/DML" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      数据库语句合集之DML、DQL
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/07/13/知识汇总/数据库/DML/" class="article-date">
+  <time datetime="2019-07-13T01:29:30.000Z" itemprop="datePublished">2019-07-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/知识汇总/">知识汇总</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <h4 id="数据库语句合集将分三大类DDL-数据定义语句-、DML（数据操纵语句）、DCL-数据控制语句-、-DQL-数据查询语句-对数据基本操作语句的进行归纳总结。本文为DML、DQL的一些基本语句。"><a href="#数据库语句合集将分三大类DDL-数据定义语句-、DML（数据操纵语句）、DCL-数据控制语句-、-DQL-数据查询语句-对数据基本操作语句的进行归纳总结。本文为DML、DQL的一些基本语句。" class="headerlink" title="数据库语句合集将分三大类DDL(数据定义语句)、DML（数据操纵语句）、DCL(数据控制语句)、 DQL(数据查询语句)对数据基本操作语句的进行归纳总结。本文为DML、DQL的一些基本语句。"></a>数据库语句合集将分三大类DDL(数据定义语句)、DML（数据操纵语句）、DCL(数据控制语句)、 DQL(数据查询语句)对数据基本操作语句的进行归纳总结。本文为DML、DQL的一些基本语句。</h4><a id="more"></a>
+
+<blockquote>
+<p>DML: 数据操纵语言</p>
+</blockquote>
+<hr>
+<p>1、数据操纵语言： 对表格中数据进行增删改的语句；包括：update、insert、delete</p>
+<p>2、常用的操纵语句：</p>
+<ul>
+<li><p>插入数据记录： 包括插入元组（一条记录）和插入子查询结果（可插入多条元组）</p>
+<ul>
+<li><p>插入元组： insert into 表名(字段1, 字段2, … , 字段n) values(值1, 值2, … , 值n)</p>
+<p>PS: 若(字段1, 字段2, … , 字段n)省略，则表示插入完整的一条记录，且values值的顺序与表中顺序保持一致</p>
+</li>
+<li><p>插入子查询结果：   insert into 表名(字段1, 字段2, … , 字段n) select语句</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">|--insert into Student(Sname, Sno, Ssex) values(&apos;zing&apos;, &apos;2016......&apos;, &apos;女&apos;);</span><br><span class="line">|--insert into Student values(&apos;zing&apos;, &apos;20160101&apos;, &apos;女&apos;);</span><br><span class="line">|--insert into Student(Sname, Sno, Ssex) </span><br><span class="line">      select Sname, Sno, Ssex </span><br><span class="line">      from person</span><br><span class="line">      where school = &apos;北大&apos;;</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>删除数据记录：   delete from 表名 where 条件</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete from studet where Sno = &apos;20160101&apos;;</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>修改数据记录：   update 表名 set 新数据 where 条件</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update Student set Sage = Sage + 1 where Sno = &apos;20160101&apos;;</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><p>增加/插入视图中数据记录：  insert into 视图名 values(值1, 值2, … , 值n)；</p>
+</li>
+<li><p>删除视图中数据记录：  delete from 视图名 where 条件</p>
+</li>
+<li><p>修改视图中数据记录：  update 视图名 set 新数据 where 条件</p>
+</li>
+</ul>
+<blockquote>
+<p>DQL: 数据查询语言</p>
+</blockquote>
+<hr>
+<p>1、数据查询语言： 对表格中数据进行查询的语句；即 select</p>
+<ul>
+<li><p>查询数据记录：select all/distinct 目标列</p>
+<pre><code>from 表
+where 条件表达式
+group by 列 having 条件表达式
+order by 列 asc/desc</code></pre><p>PS: where…和group..二者取其一</p>
+</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">条件表达式集锦：</span><br><span class="line">@ 大小比较： =、!=、&lt;、&gt;、&lt;=、&gt;= 等</span><br><span class="line">@ 范围比较： between ... and...  、 not between ... and...</span><br><span class="line">@ 属于集合： in 、 not in</span><br><span class="line">@ 匹配字符： like 、 not like； %：可匹配任意长度字符串、 _：只能匹配单个字符；  若通配符 “%/_”  前含有转义字符 “\” ==&gt; “%/_”无含义</span><br><span class="line">@ 判断空值： is null 、 not is null</span><br><span class="line">@ 逻辑运算： and 、 or 、 not</span><br><span class="line"></span><br><span class="line">==&gt; 例子如下：</span><br><span class="line">@ where Sno = &apos;20160101&apos;</span><br><span class="line">@ where Sage between 15 and 20</span><br><span class="line">@ where Sage in (select ....)</span><br><span class="line">@ where Sname like &apos;严%&apos;    ||  where Sname like &apos;严\%&apos;     #查找名字为严xx的人    ||  查找名字为严%的人</span><br><span class="line">@ where Sno = &apos;20160101&apos; or Sno = &apos;20160103&apos;</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">聚集函数： 增强检索功能，对查询结果的细化: </span><br><span class="line">包括： count(*)、 sum(列名)、avg(列名)、 max(列名)、 min(列名)等</span><br><span class="line"></span><br><span class="line">eg: select sum(Sage) from...</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>查询视图中数据记录：   select 列 from 视图名 where 条件</li>
+</ul>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2019/07/13/错题汇总/综合试题/恒生卷1/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            第一弹
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/07/12/知识汇总/数据库/DDL/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">数据库语句合集之DDL</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <!--侧边栏关于自己的i第一个框-->
+
+<div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.webp" title="可爱的我"></img>
+    <h3 class="avatar-name">
+      
+        小火炉
+      
+    </h3>
+    <p class="avatar-slogan">
+      看似寻常最奇崛,成如容易却艰辛。
+    </p>
+  </div>
+</div>
+
+
+  
+    <!--分类-->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/个人随笔/">个人随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术问题/">技术问题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/知识汇总/">知识汇总</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/错题汇总/">错题汇总</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LINUX/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VUE-JS/">Vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人随笔/">个人随笔</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术问题/">技术问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法分析与设计/">算法分析与设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/综合试题/">综合试题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    <!--侧边栏边框中内容设置 -->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    <!--Recent Post边框-->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/25/错题汇总/综合试题/恒生准备/">准备</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/20/知识汇总/ES6/性质/">ES6特性</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/17/知识汇总/ES6/paomiseTwo/">Promise(二)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/17/知识汇总/ES6/promiseOne/">Promise(一)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/15/个人随笔/面经/pack/">Webpack和npm</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+      <div class="widget-box">
+    <h3 class="widget-title">友链</h3>
+    <div class="widget">
+      
+        <a style="display: block;" href="https://yiluyanxia.github.io/" title target='_blank'
+        >一路烟霞</a>
+      
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 Bammy &nbsp;&nbsp;
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">不蒜子告之   阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script>
+if (!window.jQuery) {
+var script = document.createElement('script');
+script.src = "/js/jquery-2.0.3.min.js";
+document.body.write(script);
+}
+</script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">博客</a>
+  
+    <a href="/me" class="mobile-nav-link">关于我</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+</body>
+</html>

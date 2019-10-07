@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>存储管理 | MudStove’s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="keywords" content="操作系统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="存储管理">
+<meta property="og:url" content="http://yoursite.com/2019/08/26/知识汇总/操作系统/keep/index.html">
+<meta property="og:site_name" content="MudStove’s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2019-10-06T00:42:37.388Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="存储管理">
+  
+    <link rel="alternate" href="/atom.xml" title="MudStove’s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.webp">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+  <script>
+  let antiquityStorage = window.sessionStorage.getItem('antiquitySessionStorage');
+  if (antiquityStorage == '' || antiquityStorage == null) {
+    var antiquityLoader = '<div id="loaderbox"><div class="loader"><div class="load-roll"><div class="load-top"></div><div class="load-right"></div><div class="load-bottom"></div></div></div></div>';
+    document.write(antiquityLoader);
+    document.body.style.overflow = 'hidden'
+  }
+  </script>
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="可爱的我">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <!--<img src="../../sources/images/首页.png"></img>-->
+        <a class="nav-item" href="/"
+         title
+        
+        >首页</a>
+      
+        <!--<img src="../../sources/images/博客.png"></img>-->
+        <a class="nav-item" href="/archives"
+         title
+        
+        >博客</a>
+      
+        <!--<img src="../../sources/images/关于我.png"></img>-->
+        <a class="nav-item" href="/me"
+         title
+        
+        >关于我</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-left">
+        <section id="main"><article id="post-知识汇总/操作系统/keep" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      存储管理
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/08/26/知识汇总/操作系统/keep/" class="article-date">
+  <time datetime="2019-08-26T03:35:43.000Z" itemprop="datePublished">2019-08-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/知识汇总/">知识汇总</a>
+  </div>
+
+    
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/操作系统/">操作系统</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <!-- 存储基本 -->
+
+<a id="more"></a>
+
+<p>1、存储管理功能</p>
+<ul>
+<li><p>虚拟存储器</p>
+</li>
+<li><p>地址变换</p>
+</li>
+<li><p>控制内外存储数据传输</p>
+</li>
+<li><p>内存的分配与回收</p>
+</li>
+<li><p>内存信息的共享与保护</p>
+<ul>
+<li><p>保护方法： 硬件法、软件法、软硬件结合法</p>
+</li>
+<li><p>上下界保护法：是一种硬件保护法</p>
+</li>
+<li><p>保护键法</p>
+</li>
+<li><p>界限寄存器和CPU用户态或核心态相结合方法</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>2、分区存储管理</p>
+<ul>
+<li><p>原理：给每一个内存中进程划分一块适当大小的存储区，用以连续存储各进程的程序与数据，使各程序能并发执行</p>
+</li>
+<li><p>分类： 固定分区法 、 动态分区法</p>
+<ul>
+<li><p>动态分区： 在作业开始前不进行分区，其大小根据进程对内存的需求进行动态改变</p>
+</li>
+<li><p>从可用表、自由链中寻找空闲区方法：</p>
+<ul>
+<li><p>最先适应算法：从搜索起始地址开始查找，若发现了大于或等于所需内存长度的分区则停止搜索</p>
+<ul>
+<li>搜索速度最快、回收过程最佳，仅可能的利用了低地址空间</li>
+</ul>
+</li>
+<li><p>最佳适应算法：空闲区从小到大排序，从表头开始查找，若发现了可以满足需求的空闲区则停止搜索</p>
+<ul>
+<li>能找到最佳的空闲区，但却不一定能提高空间利用率</li>
+</ul>
+</li>
+<li><p>最坏适应算法：空闲区从大到小排序，从表头开始检查，若可以满足需求的空闲区则停止搜索，否则失败</p>
+<ul>
+<li>为了不留碎片空闲区</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>优点：</p>
+<ul>
+<li><p>实现了多作业或进程发共享，有助于多道程序设计，从而提高了资源利用率</p>
+</li>
+<li><p>硬件支持少，算法简单易实现</p>
+</li>
+</ul>
+</li>
+<li><p>缺点：</p>
+<ul>
+<li><p>碎片问题，使得内存利用率还有待提高</p>
+</li>
+<li><p>作业或进程大小受分区大小限制</p>
+</li>
+<li><p>无法实现各分区间信息共享</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>3、覆盖与交换技术</p>
+<ul>
+<li><p>覆盖技术：同一程序内，把程序划分为若干功能独立的程序段，把不会同时执行的程序段放在一个分区内（一般是外存），当前面程序执行完后，把后续需要的程序段调入内存覆盖前面的已完成的程序段</p>
+</li>
+<li><p>交换技术：不同程序间，把暂时不需要的程序数据保存在外存交换区，需要用到时，从外存交换区调取所需程序到内存中，实现内存的扩充</p>
+</li>
+</ul>
+<p>4、页式管理</p>
+<ul>
+<li><p>基本原理：把进程的虚拟空间划分为若干长度相等的页、内存空间也按照页的大小划分为片或页面</p>
+</li>
+<li><p>页 = 页号P + 页内地址W  ；每个页长大约为1K~4K</p>
+</li>
+<li><p>静态页式管理</p>
+<ul>
+<li>需要为要求内存的进程或作业分配足够的页面，分配工作依赖三个表：页表、请求表、存储页面表</li>
+</ul>
+</li>
+<li><p>动态页式管理</p>
+<ul>
+<li><p>抖动现象：页面调度非常频繁，以致于大多数时间花费在内外存的来回调入调出上，这一活动产生的现象叫抖动现象</p>
+</li>
+<li><p>置换方法：</p>
+<ul>
+<li><p>随机淘汰算法：无法确认哪些页被访问的概率较低时，随机置换某一页</p>
+</li>
+<li><p>先进先出算法（FIFO）：淘汰在内存中驻留时间最长的页</p>
+<ul>
+<li><p>内存利用率不高，假定CPU按线性顺序访问地址空间</p>
+</li>
+<li><p>陷阱现象： 又称为Belady现象，即正常情况下却也次数和分配页面数成反比例增长，但是有时分配 页面数越多，缺页次数也随之增加</p>
+</li>
+</ul>
+</li>
+<li><p>轮转法：循环的方式置换出区内可以被换出的页，不考虑该区被换进的时长</p>
+<ul>
+<li>内存利用率不高，假定CPU按线性顺序访问地址空间</li>
+</ul>
+</li>
+<li><p>最近最久未使用置换</p>
+</li>
+<li><p>理想型淘汰算法</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>优点</p>
+<ul>
+<li><p>由于不需要作业或程序在内存中连续存放，因此有效的解决了碎片问题</p>
+</li>
+<li><p>提高了主存的利用率，有利于组织多道程序执行</p>
+</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li><p>需要程序的硬件支持</p>
+</li>
+<li><p>增大了系统开销，例如缺页中断处理等</p>
+</li>
+<li><p>页内利用率不够高</p>
+</li>
+<li><p>请求算法的选择非常重要</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>5、段式管理</p>
+<ul>
+<li><p>基本思想：把程序按照内容或过程关系分成段，每段有自己的名字，对应一个二维虚拟空间</p>
+</li>
+<li><p>优点：</p>
+<ul>
+<li><p>也是内外存统一管理，但是段式管理每次交换的都是有意义的信息</p>
+</li>
+<li><p>段长可根据需要动态增长</p>
+</li>
+<li><p>便于对有完整逻辑功能的信息进行共享</p>
+</li>
+<li><p>便于实现动态链接</p>
+</li>
+</ul>
+</li>
+<li><p>缺点：</p>
+<ul>
+<li><p>需要硬件支持</p>
+</li>
+<li><p>段长受到内存可用区大小的限制</p>
+</li>
+<li><p>淘汰算法的选择也需要谨慎</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>6、段页式管理</p>
+<ul>
+<li><p>结合了段式管理与页式管理的优点</p>
+</li>
+<li><p>增加了复杂性和开销</p>
+</li>
+<li><p>一般只用于大型机系统</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2019/08/27/知识汇总/操作系统/device/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            设备管理
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/08/25/知识汇总/操作系统/dispatch/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">调度</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <!--侧边栏关于自己的i第一个框-->
+
+<div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.webp" title="可爱的我"></img>
+    <h3 class="avatar-name">
+      
+        小火炉
+      
+    </h3>
+    <p class="avatar-slogan">
+      看似寻常最奇崛,成如容易却艰辛。
+    </p>
+  </div>
+</div>
+
+
+  
+    <!--分类-->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/个人随笔/">个人随笔</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术问题/">技术问题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/知识汇总/">知识汇总</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/错题汇总/">错题汇总</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LINUX/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VUE-JS/">Vue.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人随笔/">个人随笔</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术问题/">技术问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法分析与设计/">算法分析与设计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/综合试题/">综合试题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    <!--侧边栏边框中内容设置 -->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    <!--Recent Post边框-->
+
+
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/09/25/错题汇总/综合试题/恒生准备/">准备</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/20/知识汇总/ES6/性质/">ES6特性</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/17/知识汇总/ES6/paomiseTwo/">Promise(二)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/17/知识汇总/ES6/promiseOne/">Promise(一)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/15/个人随笔/面经/pack/">Webpack和npm</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+      <div class="widget-box">
+    <h3 class="widget-title">友链</h3>
+    <div class="widget">
+      
+        <a style="display: block;" href="https://yiluyanxia.github.io/" title target='_blank'
+        >一路烟霞</a>
+      
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 Bammy &nbsp;&nbsp;
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">不蒜子告之   阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script>
+if (!window.jQuery) {
+var script = document.createElement('script');
+script.src = "/js/jquery-2.0.3.min.js";
+document.body.write(script);
+}
+</script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">博客</a>
+  
+    <a href="/me" class="mobile-nav-link">关于我</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+</body>
+</html>
