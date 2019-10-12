@@ -5,23 +5,23 @@
   
 
   
-  <title>OSI模型之物理层 | MudStove’s Blog</title>
+  <title>OSI之数据链路层 | MudStove’s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
   
-  <meta name="description" content="本文简单概述物理层的基本概念、基础知识和传输媒介">
+  <meta name="description" content="内容">
 <meta name="keywords" content="计算机网络">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OSI模型之物理层">
-<meta property="og:url" content="http://yoursite.com/2019/07/22/知识汇总/计算机网络/OSIOne/index.html">
+<meta property="og:title" content="OSI之数据链路层">
+<meta property="og:url" content="http://yoursite.com/2019/07/22/知识汇总/计算机网络/OSITwo/index.html">
 <meta property="og:site_name" content="MudStove’s Blog">
-<meta property="og:description" content="本文简单概述物理层的基本概念、基础知识和传输媒介">
+<meta property="og:description" content="内容">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-09-28T08:57:05.109Z">
+<meta property="og:updated_time" content="2019-10-08T11:11:45.713Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OSI模型之物理层">
-<meta name="twitter:description" content="本文简单概述物理层的基本概念、基础知识和传输媒介">
+<meta name="twitter:title" content="OSI之数据链路层">
+<meta name="twitter:description" content="内容">
   
     <link rel="alternate" href="/atom.xml" title="MudStove’s Blog" type="application/atom+xml">
   
@@ -76,21 +76,21 @@
   </div>
 </header>
       <div id="middlecontent" title class="global-width sidebar-left">
-        <section id="main"><article id="post-知识汇总/计算机网络/OSIOne" class="article global-container article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-知识汇总/计算机网络/OSITwo" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
       
   
     <h1 class="article-title" itemprop="name">
-      OSI模型之物理层
+      OSI之数据链路层
     </h1>
   
 
     </header>
   
   <div class="article-meta">
-    <a href="/2019/07/22/知识汇总/计算机网络/OSIOne/" class="article-date">
-  <time datetime="2019-07-22T02:32:02.000Z" itemprop="datePublished">2019-07-22</time>
+    <a href="/2019/07/22/知识汇总/计算机网络/OSITwo/" class="article-date">
+  <time datetime="2019-07-22T07:42:55.000Z" itemprop="datePublished">2019-07-22</time>
 </a>
     
   <div class="article-category">
@@ -111,37 +111,62 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        <p>本文简单概述物理层的基本概念、基础知识和传输媒介</p>
+        <p>内容</p>
 <a id="more"></a>
 
-<p>1、DTE：数据终端（手机、电脑等）         DCE:数据通信设备（路由器，交换机等）</p>
-<p>2、概念： 物理层为设备之间的数据通信提供传输媒体及互连设备，为数据传输提供可靠的环境</p>
-<p>3、特性： 机械特性、电气特性、功能特性、过程特性</p>
-<p>4、信号：</p>
+<p>1、数据链路层属于计算机网络的低层，该层使用的信道有两种：</p>
 <ul>
-<li><p>模拟信号，或连续信号，代表消息的参数取值是连续的</p>
+<li><p>点对点信道: 一对一的点对点通信</p>
 </li>
-<li><p>数字信号，或离散信号，代表消息的参数取值是离散的；而不同离散数值的基本波形称为码元（0、1）</p>
+<li><p>广播信道：一对多的广播通信</p>
 </li>
 </ul>
-<p>5、信道：用来向某一方向发送信息的媒介</p>
+<p>2、通信时的步骤</p>
 <ul>
-<li><p>单向通信，又为单工通信</p>
+<li><p>把网络层交下来的IP数据报添加首部和尾部封装成帧</p>
 </li>
-<li><p>双向交替通信，即半双工通信：一方发送一方接收，一段时间后另一方才能发送，比如对讲机</p>
+<li><p>把封装好的帧发送到目标节点的数据链路层</p>
 </li>
-<li><p>双向同时通信，即全双工通信：双方可同时接收和发送，需要两条信道。比如电话</p>
+<li><p>目标节点的数据链路层判断收到的帧是否有差错，有则丢弃此帧，无则提取出IP数据报并上交给网络层</p>
 </li>
 </ul>
-<p>6、信道复用技术：共享信道的技术</p>
+<p>3、功能：</p>
 <ul>
-<li><p>频分复用 (FDM) ：1个频带按用户需要分割成多个专属子频带，给所有用户分配专属的通信频带，不论什么时候该信道都是相同的</p>
+<li><p>封装成帧：把IP数据包转化成MAC帧</p>
+<ul>
+<li>帧为数据链路层的数据传送单元</li>
+<li>帧 = 帧首部（以“SOH”开头） + IP数据报（即“分组”） + 帧尾部（以“EOT”结尾）</li>
+<li>“SOH”、“EOT”分别为帧开始符和帧结束符，用于确定帧的界限，即帧定界。</li>
+<li>每一种路由协议都会规定所能传输的帧的最大传送单元MTU ==&gt; (IP数据包 &lt;= MTU)</li>
+</ul>
 </li>
-<li><p>时分复用 (TDM) ：1个通信频带不能分割，即一个频带所有用户轮流使用。</p>
+<li><p>透明传输: 让帧中除帧结束符“EOT”外的EOT像透明的字符一样传输，不影响正常传输</p>
+<ul>
+<li>解决方法: 在数据中的“SOH”、“EOT”前加上转义字符“ESC”。该方法被称为“字节填充或字符填充”</li>
+</ul>
 </li>
-<li><p>码分复用 (CDM) : 1个用户可以在同样的时间使用同样的频带进行通信</p>
+<li><p>差错检测</p>
+<ul>
+<li><p>比特差错：0、1在传输过程中出错在，转变成1、0</p>
 </li>
-<li><p>波分复用 (WDM) : 即光的频分复用</p>
+<li><p>循环冗余检验法（CRC）</p>
+</li>
+</ul>
+</li>
+<li><p>链路管理</p>
+</li>
+<li><p>流量控制</p>
+</li>
+<li><p>寻址</p>
+</li>
+<li><p>将数据和控制信息区分开</p>
+</li>
+</ul>
+<p>4、主要协议：</p>
+<ul>
+<li><p>PPP协议</p>
+</li>
+<li><p>CSMA/CD协议</p>
 </li>
 </ul>
 
@@ -170,8 +195,8 @@
   </div>
   <div class="article-nav-block">
     
-      <a href="/2019/07/21/知识汇总/计算机网络/concept/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">计算机网络之基础知识</div>
+      <a href="/2019/07/21/知识汇总/计算机网络/OSIOne/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">OSI模型之物理层</div>
         <strong class="article-nav-caption"></strong>
       </a>
     
@@ -260,7 +285,7 @@ gitment.render('gitmentContainer')
       <ul>
         
           <li>
-            <a href="/2019/09/25/错题汇总/综合试题/恒生准备/">准备</a>
+            <a href="/2019/09/25/错题汇总/综合试题/恒生准备/">软件工程之过程模型</a>
           </li>
         
           <li>

@@ -10,18 +10,25 @@
   
   
   
-  <meta name="description" content="小火炉的个人随笔">
+  <meta name="description" content="无向图中，使用最小的权值连接所有顶点后构成的图形">
 <meta name="keywords" content="算法分析与设计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图论算法之最小生成树">
 <meta property="og:url" content="http://yoursite.com/2019/08/07/知识汇总/算法分析与设计/图论/MST/index.html">
 <meta property="og:site_name" content="MudStove’s Blog">
-<meta property="og:description" content="小火炉的个人随笔">
+<meta property="og:description" content="无向图中，使用最小的权值连接所有顶点后构成的图形">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-10-01T02:08:46.270Z">
+<meta property="og:image" content="http://yoursite.com/2019/08/07/知识汇总/算法分析与设计/images/Prim0.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/07/知识汇总/算法分析与设计/images/Prim1.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/07/知识汇总/算法分析与设计/images/Prim2.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/07/知识汇总/算法分析与设计/images/Prim3.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/07/知识汇总/算法分析与设计/images/Prim4.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/07/知识汇总/算法分析与设计/images/Prim5.png">
+<meta property="og:updated_time" content="2019-10-10T05:21:51.375Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图论算法之最小生成树">
-<meta name="twitter:description" content="小火炉的个人随笔">
+<meta name="twitter:description" content="无向图中，使用最小的权值连接所有顶点后构成的图形">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/07/知识汇总/算法分析与设计/images/Prim0.png">
   
     <link rel="alternate" href="/atom.xml" title="MudStove’s Blog" type="application/atom+xml">
   
@@ -111,7 +118,65 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        
+        <h3 id="无向图中，使用最小的权值连接所有顶点后构成的图形"><a href="#无向图中，使用最小的权值连接所有顶点后构成的图形" class="headerlink" title="无向图中，使用最小的权值连接所有顶点后构成的图形"></a>无向图中，使用最小的权值连接所有顶点后构成的图形</h3><a id="more"></a>
+
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">Prim算法</div>
+
+<p>1、基本原理： </p>
+<ul>
+<li>以各顶点为研究对象，使树连续的一步步长成：每走一步，都要把一个节点当作根节点并往上加，直至所有的顶点相关联，在算法上和Dijkstra算法相同。步骤如下图：</li>
+</ul>
+<img src="../../images/Prim0.png">
+
+<p>2、思路描述</p>
+<ul>
+<li><p>绘制表格，列属性包括是否被遍历（known）、距离（Dv）、邻接顶点（Pv）。默认值为F、无穷大、0</p>
+</li>
+<li><p>从某一顶点出发时，修改其known值，计算所有可到达顶点的最小距离，并修改距离（Dv）、邻接顶点（Pv）</p>
+</li>
+<li><p>以还没遍历且有最小距离的顶点为研究对象，重新计算各个顶点的最小距离</p>
+</li>
+<li><p>循环上两步，直到所有的顶点均被遍历</p>
+</li>
+</ul>
+<p>3、实例讲解：</p>
+<img src="../../images/Prim1.png">
+
+<ul>
+<li>首先绘制表格并进行初始化，以v1为起点，得到下图</li>
+</ul>
+<img src="../../images/Prim2.png">
+
+<ul>
+<li>以v1点为起点时，修改v1为T，同时因为v1和v2、v3、v4间均有边可达，所以修改v2、v3、v4的距离（Dv）和邻接顶点（Pv），如下图</li>
+</ul>
+<img src="../../images/Prim3.png">
+
+<ul>
+<li><p>可见此时距离最短的为1，所以v4先遍历，并计算和v4间有边可达的点v2、v3、v5、v6、v7的距离（Dv）</p>
+<ul>
+<li><p>由图可知，因为v4，所以v5、v6、v7从不可达变为可达，它们的距离等于 ( v1-&gt;v4 ) + (v4-&gt;v5/v6/v7)，邻接顶点为v4</p>
+</li>
+<li><p>此时计算所得的v2的距离 = ( v1-&gt;v4 ) + (v4-&gt;v2) = 1 + 3 = 4   &gt; ( v1 -&gt; v2 ) = 2  ==&gt; v2的距离仍为2，邻接顶点仍为v1</p>
+</li>
+<li><p>此时计算所得的v3的距离 = ( v1-&gt;v4 ) + (v4-&gt;v3) = 1 + 2 = 3   &lt; ( v1 -&gt; v3 ) = 4  ==&gt; 修改v3的可达距离为3，邻接顶点为v4</p>
+</li>
+</ul>
+<p>此时所得表格如下图：</p>
+<img src="../../images/Prim4.png">
+
+<p>循环上一步……</p>
+</li>
+<li><p>直到所有顶点均被遍历，循环结束</p>
+</li>
+</ul>
+<img src="../../images/Prim5.png">
+
+<ul>
+<li>根据终表的邻接节点和距离可以绘制最小生成树，结果如一图的最后一图</li>
+</ul>
+<p>4、代码实现:</p>
+<pre><code></code></pre><div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">Kruskal算法</div>
       
     </div>
     
@@ -227,7 +292,7 @@ gitment.render('gitmentContainer')
       <ul>
         
           <li>
-            <a href="/2019/09/25/错题汇总/综合试题/恒生准备/">准备</a>
+            <a href="/2019/09/25/错题汇总/综合试题/恒生准备/">软件工程之过程模型</a>
           </li>
         
           <li>

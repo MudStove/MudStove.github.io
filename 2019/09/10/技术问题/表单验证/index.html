@@ -10,18 +10,18 @@
   
   
   
-  <meta name="description" content="小火炉的个人随笔">
+  <meta name="description" content="本文介绍了一下vue中表单验证的rules方法">
 <meta name="keywords" content="技术问题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="表单验证">
 <meta property="og:url" content="http://yoursite.com/2019/09/10/技术问题/表单验证/index.html">
 <meta property="og:site_name" content="MudStove’s Blog">
-<meta property="og:description" content="小火炉的个人随笔">
+<meta property="og:description" content="本文介绍了一下vue中表单验证的rules方法">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-10-01T02:47:58.711Z">
+<meta property="og:updated_time" content="2019-10-08T09:25:55.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="表单验证">
-<meta name="twitter:description" content="小火炉的个人随笔">
+<meta name="twitter:description" content="本文介绍了一下vue中表单验证的rules方法">
   
     <link rel="alternate" href="/atom.xml" title="MudStove’s Blog" type="application/atom+xml">
   
@@ -111,7 +111,40 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        
+        <p>本文介绍了一下vue中表单验证的rules方法</p>
+<a id="more"></a>
+
+<p>1、表单标签中使用rules指令声明一个对象、对象为所有需要校验变量数组的集合。</p>
+<p>2、data中每一需要校验的变量定义为一个数组，数组中罗列了（条数不限）该变量的所有校验规则；每条规则格式都为： {校验条件, 提示信息, 触发器} </p>
+<ul>
+<li><p>校验条件有以下三种：</p>
+<ul>
+<li><p>直接使用定义好的条件：</p>
+<ul>
+<li><p>require：输入是否能为空  –&gt; require：true  (不能为空)</p>
+</li>
+<li><p>min/max: 输入字符长度的最小值/最大值  —&gt; min：6 (长度至少为6个字符)</p>
+</li>
+</ul>
+</li>
+<li><p>用pattern和正则表达式定义条件：–&gt; pattern: /\d{11}/ (11位数字)</p>
+</li>
+<li><p>在校验规则复杂时，不好用一个正则表达式表达，可以通过校验器 validator 来进行校验: –&gt; validator: checkIdCard</p>
+<ul>
+<li>checkIdCard: 验证的function函数，只要页面能获取到此方法就可以，不一定需要写在js文件中</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>提示信息： –&gt; message:”不符合时的提示信息”</p>
+</li>
+<li><p>触发器：–&gt; trigger: “触发方式”</p>
+<ul>
+<li>触发方式 ==&gt; blur、change等</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">例子：</span><br><span class="line">&lt;el-form :rules=&quot;Rules&quot;&gt;</span><br><span class="line">  &lt;el-input prop=&quot;idCard1&quot;&gt;&lt;/el-input&gt;</span><br><span class="line">  &lt;el-input prop=&quot;idCard2&quot;&gt;&lt;/el-input&gt;</span><br><span class="line">&lt;/el-form&gt;</span><br><span class="line"></span><br><span class="line">data() &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    Rules: &#123;</span><br><span class="line">      idCard1:[</span><br><span class="line">        &#123;require：true,message:&quot;此处不能为空&quot;,trigger: &quot;blur&quot;&#125;,</span><br><span class="line">        &#123;pattern: /\d&#123;11&#125;/, message: &quot;请输入11位的数字&quot;, trigger: &quot;blur&quot;&#125;,</span><br><span class="line">        &#123;validator: this.checkIdCard, message: &quot;请输入真实有效身份证号码&quot;, trigger: &quot;blur&quot;&#125;     // 同一个页面内获取到函数，要用this.方法名</span><br><span class="line">        ......</span><br><span class="line">      ],</span><br><span class="line">      idCard2:[</span><br><span class="line">        ......</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">  // 校验身份证号是否符合要求</span><br><span class="line">    checkIdCard(rule, value, callback) &#123;</span><br><span class="line">      const reg15 = /^[1-9]\d&#123;5&#125;(\d&#123;2&#125;(0[1-9]|1[0-2])([0-2][1-9]|10|20|30|31))\d&#123;3&#125;$/;</span><br><span class="line">      const reg18 = /^[1-9]\d&#123;5&#125;(18|19|20)\d&#123;2&#125;((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d&#123;3&#125;[0-9Xx]$/;</span><br><span class="line">      if (value === &apos;&apos; || value === undefined || value === null) &#123;</span><br><span class="line">        callback();</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        if (value.length === 15 &amp;&amp; reg15.test(value)) &#123;</span><br><span class="line">          callback();</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          if (value.length === 18 &amp;&amp; reg18.test(value)) &#123;</span><br><span class="line">            // 将前17位加权因子保存在数组里</span><br><span class="line">            var idCardWi = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2];</span><br><span class="line">            // 这是除以11后，可能产生的11位余数、验证码，也保存成数组</span><br><span class="line">            var idCardY = [&apos;1&apos;, &apos;0&apos;, &apos;10&apos;, &apos;9&apos;, &apos;8&apos;, &apos;7&apos;, &apos;6&apos;, &apos;5&apos;, &apos;4&apos;, &apos;3&apos;, &apos;2&apos;];</span><br><span class="line">            // 用来保存前17位各自乖以加权因子后的总和</span><br><span class="line">            var idCardWiSum = 0;</span><br><span class="line">            for (var i = 0; i &lt; 17; i++) &#123;</span><br><span class="line">              idCardWiSum += value.substring(i, i + 1) * idCardWi[i];</span><br><span class="line">            &#125;</span><br><span class="line">            // 计算出校验码所在数组的位置</span><br><span class="line">            var idCardMod = idCardWiSum % 11;</span><br><span class="line">            // 得到最后一位身份证号码</span><br><span class="line">            var idCardLast = value.substring(17);</span><br><span class="line">            // 如果等于2，则说明校验码是10，身份证号码最后一位应该是X</span><br><span class="line">            if (idCardMod === 2) &#123;</span><br><span class="line">              if (idCardLast === &quot;X&quot; || idCardLast === &quot;x&quot;) &#123;</span><br><span class="line">                callback();</span><br><span class="line">              &#125; else &#123;</span><br><span class="line">                callback(new Error(&apos;请输入真实有效的身份证号码&apos;));</span><br><span class="line">              &#125;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">              // 用计算出的验证码与最后一位身份证号码匹配，如果一致，说明通过，否则是无效的身份证号码</span><br><span class="line">              if (idCardLast === idCardY[idCardMod]) &#123;</span><br><span class="line">                console.log(&apos;成功&apos;);</span><br><span class="line">                callback();</span><br><span class="line">              &#125; else &#123;</span><br><span class="line">                callback(new Error(&apos;请输入真实有效的身份证号码&apos;));</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125; else &#123;</span><br><span class="line">            callback(new Error(&apos;请输入真实有效的身份证号码&apos;));</span><br><span class="line">            console.log(&apos;结果= &apos; + idCardWiSum + value.length + reg18.test(value));</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
       
     </div>
     
@@ -227,7 +260,7 @@ gitment.render('gitmentContainer')
       <ul>
         
           <li>
-            <a href="/2019/09/25/错题汇总/综合试题/恒生准备/">准备</a>
+            <a href="/2019/09/25/错题汇总/综合试题/恒生准备/">软件工程之过程模型</a>
           </li>
         
           <li>

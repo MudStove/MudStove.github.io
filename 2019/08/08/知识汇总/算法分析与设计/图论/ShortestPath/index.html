@@ -10,18 +10,23 @@
   
   
   
-  <meta name="description" content="小火炉的个人随笔">
+  <meta name="description" content="最短路径问题： 在有向图中，求从一个顶点到另一个顶点所要经过的最短路径。">
 <meta name="keywords" content="算法分析与设计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图论算法之最短路径">
 <meta property="og:url" content="http://yoursite.com/2019/08/08/知识汇总/算法分析与设计/图论/ShortestPath/index.html">
 <meta property="og:site_name" content="MudStove’s Blog">
-<meta property="og:description" content="小火炉的个人随笔">
+<meta property="og:description" content="最短路径问题： 在有向图中，求从一个顶点到另一个顶点所要经过的最短路径。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-10-01T02:08:55.701Z">
+<meta property="og:image" content="http://yoursite.com/2019/08/08/知识汇总/算法分析与设计/images/Dijkstra1.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/08/知识汇总/算法分析与设计/images/Dijkstra2.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/08/知识汇总/算法分析与设计/images/Dijkstra3.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/08/知识汇总/算法分析与设计/images/Dijkstra4.png">
+<meta property="og:updated_time" content="2019-10-10T05:17:00.802Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图论算法之最短路径">
-<meta name="twitter:description" content="小火炉的个人随笔">
+<meta name="twitter:description" content="最短路径问题： 在有向图中，求从一个顶点到另一个顶点所要经过的最短路径。">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/08/知识汇总/算法分析与设计/images/Dijkstra1.png">
   
     <link rel="alternate" href="/atom.xml" title="MudStove’s Blog" type="application/atom+xml">
   
@@ -111,7 +116,48 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        
+        <h3 id="最短路径问题：-在有向图中，求从一个顶点到另一个顶点所要经过的最短路径。"><a href="#最短路径问题：-在有向图中，求从一个顶点到另一个顶点所要经过的最短路径。" class="headerlink" title="最短路径问题： 在有向图中，求从一个顶点到另一个顶点所要经过的最短路径。"></a>最短路径问题： 在有向图中，求从一个顶点到另一个顶点所要经过的最短路径。</h3><a id="more"></a>
+
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">无权最短路径</div>
+
+<p>使用方法：广度优先搜索：<a href="https://mudstove.github.io/2019/08/15/%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE%E7%BB%93%E6%9E%84/ergodic/" target="_blank" rel="noopener">请移步此处</a></p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">有权最短路径 --> Dijkstra 算法</div>
+
+<p>1、思路描述： </p>
+<ul>
+<li><p>把顶点分为可达和不可达两种类型（动态变化、初始时均不可达）。绘制表格，列属性包括是否被遍历（known）、距离（Dv）、邻接顶点（Pv）。默认值为F、无穷大、0</p>
+</li>
+<li><p>从某一顶点出发时，计算所有可到达顶点的最小距离，并修改距离（Dv）、邻接顶点（Pv）</p>
+</li>
+<li><p>以还没遍历且有最小距离的顶点为研究对象，重新计算各个顶点的最小距离</p>
+</li>
+<li><p>循环上两步，直到所有的顶点均被遍历</p>
+</li>
+</ul>
+<p>2、实例分析:</p>
+<img src="../../images/Dijkstra1.png">
+
+<ul>
+<li>首先绘制表格并进行初始化，以v1为起点，得到下图</li>
+</ul>
+<img src="../../images/Dijkstra2.png">
+
+<ul>
+<li>以v1点为起点时，修改v1为T，同时因为v2、v4可达，所以修改v2、v4的距离（Dv）和邻接顶点（Pv），如下图</li>
+</ul>
+<img src="../../images/Dijkstra3.png">
+
+<ul>
+<li>可见此时距离最短的为1，所以v4先遍历，并修改v4的known和v4可到达的点v3、v5、v6、v7距离（Dv）和邻接顶点（Pv） 【因为这些点此时都还是不可达，所以若可达，距离肯定更小，于是直接修改】</li>
+</ul>
+<p>……</p>
+<ul>
+<li>所有顶点均被遍历，循环结束，所得结果如下图</li>
+</ul>
+<img src="../../images/Dijkstra4.png">
+
+<p>3、代码实现</p>
+<pre><code></code></pre>
       
     </div>
     
@@ -227,7 +273,7 @@ gitment.render('gitmentContainer')
       <ul>
         
           <li>
-            <a href="/2019/09/25/错题汇总/综合试题/恒生准备/">准备</a>
+            <a href="/2019/09/25/错题汇总/综合试题/恒生准备/">软件工程之过程模型</a>
           </li>
         
           <li>

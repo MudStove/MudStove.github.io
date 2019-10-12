@@ -5,20 +5,20 @@
   
 
   
-  <title>图论之遍历 | MudStove’s Blog</title>
+  <title>图论之遍历方法 | MudStove’s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
   
   <meta name="keywords" content="数据结构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="图论之遍历">
+<meta property="og:title" content="图论之遍历方法">
 <meta property="og:url" content="http://yoursite.com/2019/08/15/知识汇总/数据结构/图结构/ergodic/index.html">
 <meta property="og:site_name" content="MudStove’s Blog">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-10-06T13:53:29.974Z">
+<meta property="og:updated_time" content="2019-10-10T03:00:35.784Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="图论之遍历">
+<meta name="twitter:title" content="图论之遍历方法">
   
     <link rel="alternate" href="/atom.xml" title="MudStove’s Blog" type="application/atom+xml">
   
@@ -79,7 +79,7 @@
       
   
     <h1 class="article-title" itemprop="name">
-      图论之遍历
+      图论之遍历方法
     </h1>
   
 
@@ -112,9 +112,37 @@
 
 <a id="more"></a>
 
-<p>图的遍历方法</p>
-<p>1、深度优先（DFS）</p>
-<p>2、广度优先（BFS）</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、广度优先（BFS）：</div>
+
+<ul>
+<li><p>类似于树的层序遍历，以每个顶点为研究对象，依次遍历该顶点的出度顶点；遍历完该顶点后，依次以该顶点的出度顶点为研究对象，遍历它们的出度顶点……直至所有的顶点均已遍历</p>
+</li>
+<li><p>适用对象：无权有向图</p>
+</li>
+<li><p>思路描述：</p>
+<ul>
+<li><p>绘制表格，列属性包括是否被遍历（known）、距离（Dv）、邻接顶点（Pv）</p>
+</li>
+<li><p>选择一个点为起点v3开始遍历。让其入队，并依次修改列属性为： 0、0；让其出队并修改known为T</p>
+</li>
+<li><p>修改该点可到达的顶点的列属性为：T，0+1 (0为v3点的d值)、v3(出队的顶点)</p>
+</li>
+<li><p>让上一步被遍历的顶点依次入队，根据“先入先出”的顺序出队，并修改相应的known</p>
+</li>
+<li><p>循环上两步，直到所有结点的known为T</p>
+</li>
+</ul>
+</li>
+<li><p>代码实现</p>
+</li>
+</ul>
+<pre><code></code></pre><div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">2、深度优先（DFS）:</div>
+
+<ul>
+<li></li>
+<li><p>适用对象：无权无向图</p>
+</li>
+</ul>
 
       
     </div>
@@ -231,7 +259,7 @@ gitment.render('gitmentContainer')
       <ul>
         
           <li>
-            <a href="/2019/09/25/错题汇总/综合试题/恒生准备/">准备</a>
+            <a href="/2019/09/25/错题汇总/综合试题/恒生准备/">软件工程之过程模型</a>
           </li>
         
           <li>
