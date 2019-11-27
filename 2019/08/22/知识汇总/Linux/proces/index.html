@@ -10,18 +10,18 @@
   
   
   
-  <meta name="description" content="文章涉及进程的一些基本信息与指令">
+  <meta name="description" content="进程的一些基本信息与指令">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="进程管理">
 <meta property="og:url" content="http://yoursite.com/2019/08/22/知识汇总/Linux/proces/index.html">
 <meta property="og:site_name" content="MudStove’s Blog">
-<meta property="og:description" content="文章涉及进程的一些基本信息与指令">
+<meta property="og:description" content="进程的一些基本信息与指令">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-10-05T06:15:47.246Z">
+<meta property="og:updated_time" content="2019-11-15T09:51:14.627Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="进程管理">
-<meta name="twitter:description" content="文章涉及进程的一些基本信息与指令">
+<meta name="twitter:description" content="进程的一些基本信息与指令">
   
     <link rel="alternate" href="/atom.xml" title="MudStove’s Blog" type="application/atom+xml">
   
@@ -111,21 +111,23 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        <p>文章涉及进程的一些基本信息与指令</p>
+        <p style="font-weight: bold; font-size: 18px; color: #DDA0DD; margin-top: -6px;">进程的一些基本信息与指令</p>
+
 <a id="more"></a>
 
 <blockquote>
 <p>基本概念</p>
 </blockquote>
-<hr>
-<p>1、是什么</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、是什么</div>
+
 <ul>
 <li><p>简单来说，进程就是运行着的程序，在操作系统中有时也叫做任务</p>
 </li>
 <li><p>官方定义：进程是程序在某个数据集合上的运行活动，是系统进行资源分配和调度的基本单位</p>
 </li>
 </ul>
-<p>2、类型：</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">2、类型：</div>
+
 <ul>
 <li><p>交互进程：既可以在前台运行，也可以在后台运行的进程，也是由某种shell程序启动的进程，比如一个命令</p>
 </li>
@@ -134,7 +136,8 @@
 <li><p>监控进程：也叫守护进程，在Linux系统启动时运行在后台的进程</p>
 </li>
 </ul>
-<p>3、进程和程序区别</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">3、进程和程序区别</div>
+
 <ul>
 <li><p>进程是程序处理数据的过程、而程序只是一组指令的有序集合</p>
 </li>
@@ -143,11 +146,12 @@
 <li><p>进程和程序是多对一的关系</p>
 </li>
 </ul>
+<hr>
 <blockquote>
 <p>进程的启动</p>
 </blockquote>
-<hr>
-<p>1、手动启动</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、手动启动</div>
+
 <ul>
 <li><p>前台启动 ：终端shell程序创建进程</p>
 </li>
@@ -163,7 +167,8 @@
 <p>PS: […] 为可选项</p>
 </li>
 </ul>
-<p>2、调度启动</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">2、调度启动</div>
+
 <ul>
 <li><p>定义：通过事先的调度安排，让系统任务在指定的时间、场合运行，以满足系统自启动某些进程来完成工作</p>
 </li>
@@ -196,29 +201,32 @@
 </ul>
 </li>
 </ul>
+<hr>
 <blockquote>
 <p>进程查看</p>
 </blockquote>
-<hr>
-<p>1、ps命令</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、ps命令</div>
+
 <ul>
 <li><p>用于查询进程的详细情况</p>
 </li>
 <li><p>命令格式： ps [options]</p>
 </li>
 </ul>
-<p>2、top命令</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">2、top命令 </div>
+
 <ul>
 <li><p>每隔一段时间，周期性的报告、实时的显示大多数以使用CPU为主的进程的状态信息</p>
 </li>
 <li><p>命令格式： top [options] </p>
 </li>
 </ul>
+<hr>
 <blockquote>
 <p>进程调度</p>
 </blockquote>
-<hr>
-<p>1、kill命令</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、kill命令</div>
+
 <ul>
 <li><p>终止前台进程 &lt;== 控制台组合键中断（ctrl+c/break）</p>
 </li>
@@ -236,7 +244,8 @@
 </ul>
 </li>
 </ul>
-<p>2、nice命令/renice命令</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">2、nice命令/renice命令</div>
+
 <ul>
 <li><p>作用：改变进程的优先级数值。高数值的进程能优先使用CPU 数值范围  -20~19</p>
 </li>
@@ -359,7 +368,7 @@ gitment.render('gitmentContainer')
   <div class="widget-box">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li></ul>
     </div>
   </div>
 
@@ -373,23 +382,23 @@ gitment.render('gitmentContainer')
       <ul>
         
           <li>
-            <a href="/2019/10/19/知识汇总/JavaScript/scope/">JavaScript的作用域和作用域链</a>
+            <a href="/2019/11/05/错题汇总/综合试题/博思软件/">博思软件笔试题部分</a>
           </li>
         
           <li>
-            <a href="/2019/10/17/错题汇总/综合试题/中软国际/">中软国际笔试题部分</a>
+            <a href="/2019/10/29/错题汇总/综合试题/保融科技2/">保融科技笔试题部分</a>
           </li>
         
           <li>
-            <a href="/2019/10/17/知识汇总/JavaScript/desideMode/">设计模式</a>
+            <a href="/2019/10/28/错题汇总/综合试题/宇视科技/">宇视科技笔试题部分</a>
           </li>
         
           <li>
-            <a href="/2019/10/17/知识汇总/JavaScript/function/">JavaScript中方法</a>
+            <a href="/2019/10/27/错题汇总/综合试题/保融科技1/">保融科技笔试题部分</a>
           </li>
         
           <li>
-            <a href="/2019/10/12/知识汇总/HTML/iframe/">iframe</a>
+            <a href="/2019/10/26/错题汇总/综合试题/方正国际简答/">方正国际线上笔试题</a>
           </li>
         
       </ul>
