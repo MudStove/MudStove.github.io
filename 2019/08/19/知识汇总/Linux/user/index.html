@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="MudStove’s Blog">
 <meta property="og:description" content="本篇粗略介绍内容包括用户登录和账户管理">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-10-08T11:03:14.400Z">
+<meta property="og:updated_time" content="2019-12-09T15:34:38.906Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用户管理(一)">
 <meta name="twitter:description" content="本篇粗略介绍内容包括用户登录和账户管理">
@@ -111,18 +111,21 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        <p>本篇粗略介绍内容包括用户登录和账户管理</p>
+        <p style="font-weight: bold; font-size: 18px; color: #DDA0DD; margin-top: -6px;">本篇粗略介绍内容包括用户登录和账户管理</p>
+
 <a id="more"></a>
 
 <blockquote>
 <p>用户登录</p>
 </blockquote>
 <hr>
-<p>1、终端登录/本地登录</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、终端登录/本地登录</div>
+
 <ul>
 <li>Linux提供了6个虚拟控制台终端，每个终端都可登录，可使用命令  ctrl + alt + Fx切换【Fx = ‘F1~F6’】</li>
 </ul>
-<p>2、远程登录：利用客户端登录到浏览器</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">2、远程登录：利用客户端登录到浏览器</div>
+
 <ul>
 <li><p>主要命令：telnet 、 rsh 、 rlogin 、 ssh</p>
 </li>
@@ -147,7 +150,8 @@
 <p>用户账户管理</p>
 </blockquote>
 <hr>
-<p>1、用户管理</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、用户管理</div>
+
 <ul>
 <li><p>添加用户1： # useradd [-d home_dir] [-s sehll] 用户名</p>
 <ul>
@@ -181,7 +185,8 @@
 <p>eg: yzy: xxxx: 0: 0: root: /root: /bin/bash</p>
 </li>
 </ul>
-<p>2、密码管理</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">2、密码管理</div>
+
 <ul>
 <li><p>设置密码： passwd -k/d/u/l 用户名  【之后系统会提示输入密码】</p>
 <ul>
@@ -196,7 +201,8 @@
 </ul>
 </li>
 </ul>
-<p>3、成批处理</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">3、成批处理</div>
+
 <ul>
 <li><p>成批添加用户</p>
 <ul>
@@ -217,7 +223,8 @@
 </ul>
 </li>
 </ul>
-<p>4、修改用户属性</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">4、修改用户属性</div>
+
 <ul>
 <li><p>直接修改passwd文件</p>
 </li>
@@ -230,7 +237,8 @@
 </ul>
 </li>
 </ul>
-<p>5、删除用户</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">5、删除用户</div>
+
 <ul>
 <li><p>直接删除文件中信息</p>
 </li>
@@ -241,7 +249,8 @@
 <p>组群管理</p>
 </blockquote>
 <hr>
-<p>1、添加组群</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、添加组群</div>
+
 <ul>
 <li><p>修改文件添加</p>
 <ul>
@@ -257,18 +266,21 @@
 </ul>
 </li>
 </ul>
-<p>2、添加组群口令密码</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">2、添加组群口令密码</div>
+
 <ul>
 <li>gpasswd 组名</li>
 </ul>
-<p>3、修改用户组群属性</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">3、修改用户组群属性</div>
+
 <ul>
 <li><p>修改文件: group和gshadow文件中信息</p>
 </li>
 <li><p>命令行修改：groupmod [-g gid] [-o] [-n 新组名] 组名</p>
 </li>
 </ul>
-<p>4、删除组群</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">4、删除组群</div>
+
 <ul>
 <li><p>修改文件删除</p>
 <ul>
@@ -281,7 +293,8 @@
 </ul>
 </li>
 </ul>
-<p>5、每个目录文件中都有所有者权限、组权限、其他人权限；权限 = 读权限(r) + 写权限(w) + 执行权限(x)</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">5、每个目录文件中都有所有者权限、组权限、其他人权限；权限 = 读权限(r) + 写权限(w) + 执行权限(x)</div>
+
 <ul>
 <li><p>ls 目录/文件   // 可查看目录/文件的权限</p>
 </li>
@@ -445,7 +458,7 @@ gitment.render('gitmentContainer')
       </div>
       <footer id="footer">
   <div class="foot-box global-width">
-    &copy; 2019 Bammy &nbsp;&nbsp;
+    &copy; 2020 Bammy &nbsp;&nbsp;
     Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
     <br>

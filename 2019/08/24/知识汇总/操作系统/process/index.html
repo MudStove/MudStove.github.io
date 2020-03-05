@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="MudStove’s Blog">
 <meta property="og:description" content="进程的基本内容">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-10-05T23:14:49.793Z">
+<meta property="og:updated_time" content="2019-12-09T04:42:20.108Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="进程管理">
 <meta name="twitter:description" content="进程的基本内容">
@@ -111,17 +111,20 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        <p>进程的基本内容</p>
+        <p style="font-weight: bold; font-size: 18px; color: #DDA0DD; margin-top: -6px;">进程的基本内容</p>
+
 <a id="more"></a>
 
-<p>1、并发和并行</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、并发和并行</div>
+
 <ul>
 <li><p>并发：1个CPU轮流执行多个程序，因为时间间隔短，看起来两个程序都在执行，可实际上每个时刻只有一个程序在执行</p>
 </li>
 <li><p>并行：多个CPU同时执行多个程序，二者是一对一关系，每个时刻都有多个程序在执行</p>
 </li>
 </ul>
-<p>2、进程的定义</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">2、进程的定义</div>
+
 <ul>
 <li><p>进程是可以并发执行的计算机部分</p>
 </li>
@@ -132,7 +135,8 @@
 <li><p>是程序在处理机上执行的活动</p>
 </li>
 </ul>
-<p>3、进程和程序区别</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">3、进程和程序区别</div>
+
 <ul>
 <li><p>进程是动态的，而程序是静态的</p>
 </li>
@@ -143,30 +147,39 @@
 <li><p>不同的进程可包含同一程序</p>
 </li>
 </ul>
-<p>4、进程控制狂（PCB）= 进程的描述信息 + 控制信息 + 资源信息</p>
-<p>5、进程的5个基本状态： 初始状态、就绪状态、执行状态、等待状态、终止状态</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">4、进程控制狂（PCB）</div>
+
+<ul>
+<li>进程控制狂（PCB） = 进程的描述信息 + 控制信息 + 资源信息</li>
+</ul>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">5、进程的5个基本状态： 初始状态、就绪状态、执行状态、等待状态、终止状态</div>
+
 <ul>
 <li><p>就绪状态–&gt;执行状态:通过调度；  执行状态–&gt;就绪状态: 因为时间片到了</p>
 </li>
 <li><p>执行状态–&gt;等待状态:等待某个事件发生而休眠； 等待状态–&gt;就绪状态:等待某个事件发生而唤醒； 执行状态–&gt;终止状态：完成</p>
 </li>
 </ul>
-<p>6、进程控制：</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">6、进程控制：</div>
+
 <ul>
 <li><p>定义：系统使用一些具有特定功能的程序段来创建、撤销进程以及完成进程各状态间的转换，从而达到多进程高效并发执行、协调实现资源共享的目的。</p>
 </li>
 <li><p>用于进程控制的程序段 ==&gt; 原语</p>
 </li>
 </ul>
-<p>7、进程互斥</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">7、进程互斥</div>
+
 <ul>
 <li>定义：不允许两个以上并发进程同时进入临界区，实现资源共享</li>
 </ul>
-<p>8、进程同步</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">8、进程同步</div>
+
 <ul>
 <li>定义： 一组并发进程因直接制约而互相发送消息，导致互相合作、等待，各进程按照一定顺序执行的过程称之为进程间同步</li>
 </ul>
-<p>9、进程间通信</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">9、进程间通信</div>
+
 <ul>
 <li><p>定义： 顾名思义即为进程间互相传递信息</p>
 </li>
@@ -183,7 +196,8 @@
 </ul>
 </li>
 </ul>
-<p>10、死锁问题</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">10、死锁问题</div>
+
 <ul>
 <li><p>定义：指各并发进程互相等待对方所拥有的资源，而这些进程在未得到对方的资源前不会释放自己的资源，造成的大家都想得到却又都得不到，都不能继续执行的状况。</p>
 </li>
@@ -229,7 +243,8 @@
 </ul>
 </li>
 </ul>
-<p>11、线程概要：</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">11、线程概要：</div>
+
 <ul>
 <li><p>基本概念</p>
 <ul>
@@ -429,7 +444,7 @@ gitment.render('gitmentContainer')
       </div>
       <footer id="footer">
   <div class="foot-box global-width">
-    &copy; 2019 Bammy &nbsp;&nbsp;
+    &copy; 2020 Bammy &nbsp;&nbsp;
     Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
     <br>

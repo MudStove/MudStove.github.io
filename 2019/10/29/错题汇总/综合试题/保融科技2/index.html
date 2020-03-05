@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="MudStove’s Blog">
 <meta property="og:description" content="大题">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-11-08T11:04:37.804Z">
+<meta property="og:updated_time" content="2019-12-08T14:18:20.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="保融科技笔试题部分">
 <meta name="twitter:description" content="大题">
@@ -111,7 +111,8 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        <p>大题</p>
+        <p style="font-weight: bold; font-size: 18px; color: #DDA0DD; margin-top: -6px;">大题</p>
+
 <a id="more"></a>
 
 <h2 id="一：数据库"><a href="#一：数据库" class="headerlink" title="一：数据库"></a>一：数据库</h2><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">===========课程表============</span><br><span class="line">create table &apos;Course&apos;(</span><br><span class="line">  &apos;c_id&apos; varchar(20),  --课程编号</span><br><span class="line">  &apos;c_name&apos; varchar(20) not null default &apos;&apos;,  --课程名称</span><br><span class="line">  &apos;t_id&apos; varchar(20) not null,  --教师编号</span><br><span class="line">  primary key(&apos;c_id&apos;)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">===========教师表============</span><br><span class="line">create table &apos;Teacher&apos;(</span><br><span class="line">  &apos;t_id&apos; varchar(20),  --教师编号</span><br><span class="line">  &apos;t_name&apos; varchar(20) not null default &apos;&apos;,  --教师名称</span><br><span class="line">  primary key(&apos;t_id&apos;)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">===========成绩表============</span><br><span class="line">create table &apos;Score&apos;(</span><br><span class="line">  &apos;s_id&apos; varchar(20),  --学号</span><br><span class="line">  &apos;c_id&apos; varchar(20) not null default &apos;&apos;,  --课程编号</span><br><span class="line">  &apos;s-score&apos; int(3),  --成绩</span><br><span class="line">  primary key(&apos;s_id&apos;, &apos;c_id&apos;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></div>
@@ -119,24 +120,43 @@
 <div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、查询平均成绩
 大于60的学生的学分和平均成绩</div>
 
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line">&lt;div style=&quot;background: #F0E68C; color: #FFFAFA;font-size: 20px;&quot;&gt;2、查询姓&quot;张&quot;的老师的个数&lt;/div&gt;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
 
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;div style=&quot;background: #F0E68C; color: #FFFAFA;font-size: 20px;&quot;&gt;3、查询没学过“张三”老师课的学生的学号、姓名&lt;/div&gt;</span><br></pre></td></tr></table></figure></div>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">2、查询姓"张"的老师的个数</div>
 
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;div style=&quot;background: #F0E68C; color: #FFFAFA;font-size: 20px;&quot;&gt;4、查询课程编号为“01”的课程比“02&quot;的课程成绩高的所有学生的学号&lt;/div&gt;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
 
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;div style=&quot;background: #F0E68C; color: #FFFAFA;font-size: 20px;&quot;&gt;5、查询和“02”号的同学学习的课程完全相同的其他同学学号和姓名&lt;/div&gt;</span><br></pre></td></tr></table></figure></div>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">3、查询没学过“张三”老师课的学生的学号、姓名</div>
 
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">二：编程题</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">&lt;div style=&quot;background: #F0E68C; color: #FFFAFA;font-size: 20px;&quot;&gt;1、请实现一个简单的ArrayList类&lt;/div&gt;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
 
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;div style=&quot;background: #F0E68C; color: #FFFAFA;font-size: 20px;&quot;&gt;2、请编写一个方法，测试一个单词是否是回文(回文表示将单词翻转之后，得到的拼写依然与原来的一致，比如eve、level)&lt;/div&gt;</span><br></pre></td></tr></table></figure></div>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">4、查询课程编号为“01”的课程比“02"的课程成绩高的所有学生的学号</div>
 
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;div style=&quot;background: #F0E68C; color: #FFFAFA;font-size: 20px;&quot;&gt;3、请写出至少两种你熟悉的设计模式的代码实现&lt;/div&gt;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
 
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;div style=&quot;background: #F0E68C; color: #FFFAFA;font-size: 20px;&quot;&gt;4、编写一个程序，开启3个线程，这3个线程的名字分别为A、B、C，每个线程将自己的ID在屏幕上打印10遍，要求输出结果必须按ABC的顺序显示:如: ABCABC.. 依次递推&lt;/div&gt;</span><br></pre></td></tr></table></figure></div>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">5、查询和“02”号的同学学习的课程完全相同的其他同学学号和姓名</div>
 
-<p>```</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<h2 id="二：编程题"><a href="#二：编程题" class="headerlink" title="二：编程题"></a>二：编程题</h2><div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、请实现一个简单的ArrayList类</div>
+
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">2、请编写一个方法，测试一个单词是否是回文(回文表示将单词翻转之后，得到的拼写依然与原来的一致，比如eve、level)</div>
+
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">3、请写出至少两种你熟悉的设计模式的代码实现</div>
+
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">4、编写一个程序，开启3个线程，这3个线程的名字分别为A、B、C，每个线程将自己的ID在屏幕上打印10遍，要求输出结果必须按ABC的顺序显示:如: ABCABC.. 依次递推</div>
+
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
 <div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">5、若有两个json数据请问如何编写函数得到这两个数据间的差异数据</div>
+
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
       
     </div>
     
@@ -291,7 +311,7 @@ gitment.render('gitmentContainer')
       </div>
       <footer id="footer">
   <div class="foot-box global-width">
-    &copy; 2019 Bammy &nbsp;&nbsp;
+    &copy; 2020 Bammy &nbsp;&nbsp;
     Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
     <br>

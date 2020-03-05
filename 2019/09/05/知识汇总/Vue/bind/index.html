@@ -16,7 +16,7 @@
 <meta property="og:url" content="http://yoursite.com/2019/09/05/知识汇总/Vue/bind/index.html">
 <meta property="og:site_name" content="MudStove’s Blog">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-10-08T10:51:21.415Z">
+<meta property="og:updated_time" content="2019-12-08T16:01:28.275Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="双向绑定">
   
@@ -108,13 +108,22 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        <!--  -->
+        <p style="font-weight: bold; font-size: 18px; color: #DDA0DD; margin-top: -6px;"></p>
 
 <a id="more"></a>
 
-<p>1、双向绑定：数据和视图之间，一方改变就会引起另一个改变，二者的数据同步变化</p>
-<p>2、 实现思路: 二者间某一方的数据发生了变化，监测到这个变化后，通知其他的和该数据有联系的部分，让他们也跟着一起变化。</p>
-<p>3、 实现方法：</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、双向绑定：</div>
+
+<ul>
+<li>数据和视图之间，一方改变就会引起另一个改变，二者的数据同步变化</li>
+</ul>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">2、 实现思路: </div>
+
+<ul>
+<li>二者间某一方的数据发生了变化，监测到这个变化后，通知其他的和该数据有联系的部分，让他们也跟着一起变化。</li>
+</ul>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">3、 实现方法：</div>
+
 <ul>
 <li><p>原理：vue中有一个自定义的方法：Object.defineProperty()可以拦截到变化数据，并且把data对象中数据用get/set方法保存下来，之后通知相应视图发生改变</p>
 </li>
@@ -277,7 +286,7 @@ gitment.render('gitmentContainer')
       </div>
       <footer id="footer">
   <div class="foot-box global-width">
-    &copy; 2019 Bammy &nbsp;&nbsp;
+    &copy; 2020 Bammy &nbsp;&nbsp;
     Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
     <br>

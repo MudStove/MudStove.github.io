@@ -19,7 +19,7 @@
 <meta property="og:description" content="填空、简答">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/2019/10/13/错题汇总/综合试题/images/房多多2-3.jpg">
-<meta property="og:updated_time" content="2019-11-03T13:49:09.943Z">
+<meta property="og:updated_time" content="2019-12-08T15:01:43.603Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="房多多笔试题部分">
 <meta name="twitter:description" content="填空、简答">
@@ -113,10 +113,14 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        <p>填空、简答</p>
+        <p style="font-weight: bold; font-size: 18px; color: #DDA0DD; margin-top: -6px;">填空、简答</p>
+
 <a id="more"></a>
 
-<h2 id="填空题"><a href="#填空题" class="headerlink" title="填空题"></a>填空题</h2><div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、一个全局变量tally, 两个线程并发执行(代码段都是ThreadProc)，问两个线程都结束后，tally取值范围是  ---【】  </div>
+<blockquote>
+<h1 id="填空题"><a href="#填空题" class="headerlink" title="填空题"></a>填空题</h1></blockquote>
+<hr>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、一个全局变量tally, 两个线程并发执行(代码段都是ThreadProc)，问两个线程都结束后，tally取值范围是  ---【】  </div>
 
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int tally = 0;   // global variable</span><br><span class="line">void ThreadProc() &#123;</span><br><span class="line">   for (int i = 1; i&lt;= 50; i++)</span><br><span class="line">   tally+= 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
@@ -138,12 +142,16 @@
 
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">父类： </span><br><span class="line">    </span><br><span class="line">    public class FatherClass &#123;</span><br><span class="line">        public FatherClass() &#123;</span><br><span class="line">            System.out.println(&quot;FatherClass Create&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line"></span><br><span class="line">子类：</span><br><span class="line"></span><br><span class="line">    public class ChildClass extends FatherClass &#123;</span><br><span class="line"></span><br><span class="line">        public ChildClass() &#123;</span><br><span class="line">            System.out.println(&quot;ChildClass Create&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public static void main(String[] args) &#123;</span><br><span class="line">            FatherClass fc = new FatherClass();</span><br><span class="line">            ChildClass cc = new ChildClass();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></div>
 
-<h2 id="问答题"><a href="#问答题" class="headerlink" title="问答题"></a>问答题</h2><div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、回头看一下选择题7。现在我们给定的数据范围不是[0, 1000000000], 而是更通用一般化的[min, max]。请写一段程序，给定任何min、max, 以及min和max之间的number,该程序运行后都可以快速告诉我们猜测的次数。(可以使用你熟悉的任何编程语言，或者伪代码)</div>
+<blockquote>
+<h1 id="问答题"><a href="#问答题" class="headerlink" title="问答题"></a>问答题</h1></blockquote>
+<hr>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、回头看一下选择题7。现在我们给定的数据范围不是[0, 1000000000], 而是更通用一般化的[min, max]。请写一段程序，给定任何min、max, 以及min和max之间的number,该程序运行后都可以快速告诉我们猜测的次数。(可以使用你熟悉的任何编程语言，或者伪代码)</div>
 
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line">&lt;div style=&quot;background: #F0E68C; color: #FFFAFA;font-size: 20px;&quot;&gt;2、给定一个存放整数的数组，请设计个函数，重新排列数组使得数组前面为奇数，后面全偶数，同时函数返回重排后第一个为偶数的元素在数组中的位置&lt;/div&gt;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
 
-<p>```</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">2、给定一个存放整数的数组，请设计个函数，重新排列数组使得数组前面为奇数，后面全偶数，同时函数返回重排后第一个为偶数的元素在数组中的位置</div>
 
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
       
     </div>
     
@@ -298,7 +306,7 @@ gitment.render('gitmentContainer')
       </div>
       <footer id="footer">
   <div class="foot-box global-width">
-    &copy; 2019 Bammy &nbsp;&nbsp;
+    &copy; 2020 Bammy &nbsp;&nbsp;
     Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
     <br>

@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="MudStove’s Blog">
 <meta property="og:description" content="本文涉及网络层一些基本概念、IP等协议工作原理等">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-10-08T11:09:57.425Z">
+<meta property="og:updated_time" content="2019-12-09T04:58:13.259Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OSI之网络层">
 <meta name="twitter:description" content="本文涉及网络层一些基本概念、IP等协议工作原理等">
@@ -111,13 +111,15 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        <p>本文涉及网络层一些基本概念、IP等协议工作原理等</p>
+        <p style="font-weight: bold; font-size: 18px; color: #DDA0DD; margin-top: -6px;">本文涉及网络层一些基本概念、IP等协议工作原理等</p>
+
 <a id="more"></a>
 
 <blockquote>
 <p>网络层基本概念</p>
 </blockquote>
-<p>1、网络层提供的两种服务</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、网络层提供的两种服务</div>
+
 <ul>
 <li><p>虚电路服务：在两台计算机通信前，要先建立连接(虚电路VC)</p>
 </li>
@@ -172,7 +174,8 @@
 </tbody></table>
 </li>
 </ul>
-<p>2、网络互连的中间设备</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">2、网络互连的中间设备</div>
+
 <ul>
 <li><p>物理层：转发器</p>
 </li>
@@ -183,16 +186,19 @@
 <li><p>网络层以上： 网关</p>
 </li>
 </ul>
-<p>3、网络层提供主机间的逻辑通信, 而传输层提供进程间的逻辑通信</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">3、网络层提供主机间的逻辑通信, 而传输层提供进程间的逻辑通信</div>
+
 <hr>
 <blockquote>
 <p>网际协议IP</p>
 </blockquote>
-<p>1、IP地址定义：</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、IP地址定义：</div>
+
 <ul>
 <li>就是给每一台主机或路由器的每一个接口分配的一个在全世界范围内唯一的32位标识符； 由互联网名字和数字分配机构ICANN分配。</li>
 </ul>
-<p>2、IP地址编制历程：</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">2、IP地址编制历程：</div>
+
 <ul>
 <li><p>分类的IP地址</p>
 </li>
@@ -201,14 +207,16 @@
 <li><p>构成超网</p>
 </li>
 </ul>
-<p>3、IP地址/逻辑地址和硬件地址/物理地址</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">3、IP地址/逻辑地址和硬件地址/物理地址</div>
+
 <ul>
 <li><p>IP数据报 = TCP报文 + IP首部（含IP地址）</p>
 </li>
 <li><p>MAC帧 =  帧首部（含硬件地址） + IP数据报 + 帧尾部</p>
 </li>
 </ul>
-<p>4、两级IP地址</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">4、两级IP地址</div>
+
 <ul>
 <li><p>IP地址 = 网络号 + 主机号</p>
 <table>
@@ -261,7 +269,8 @@
 <p>PS2: 回环地址 ==&gt; 127.0.0.1</p>
 </li>
 </ul>
-<p>5、划分子网： </p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">5、划分子网： </div>
+
 <ul>
 <li><p>是什么： 两级IP地址 –&gt;  三级IP地址</p>
 </li>
@@ -304,8 +313,13 @@
 <blockquote>
 <p>地址解析协议ARP</p>
 </blockquote>
-<p>1、IP地址 （by ARP） –&gt; 物理地址 （by RARP） –&gt;  IP地址</p>
-<p>2、路由器：</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、过程</div>
+
+<ul>
+<li>IP地址 （by ARP） –&gt; 物理地址 （by RARP） –&gt;  IP地址</li>
+</ul>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">2、路由器：</div>
+
 <ul>
 <li><p>作用：缓存、查表、转发</p>
 </li>
@@ -372,15 +386,21 @@
 <blockquote>
 <p>路由选择协议</p>
 </blockquote>
-<p>1、静态路由选择、动态路由选择</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、静态路由选择、动态路由选择</div>
+
 <ul>
 <li><p>静态路由选择： 也叫非自适应路由选择策略 《==》 不能适应网络状态的变化，简单，开销小，适合较简单的小型网络</p>
 </li>
 <li><p>动态路由选择： 也叫自适应路由选择策略 《==》 能适应网络状态的变化，复杂，开销大，适合较复杂的大型网络</p>
 </li>
 </ul>
-<p>2、自治系统 （AS）：互联网分割成许多小的网络，每个小网络便是一个自治系统</p>
-<p>3、内部网关协议 （IGP）</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">2、自治系统 （AS）：</div>
+
+<ul>
+<li>互联网分割成许多小的网络，每个小网络便是一个自治系统</li>
+</ul>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">3、内部网关协议 （IGP）</div>
+
 <ul>
 <li><p>定义： 一个自治系统内使用的路由选择协议</p>
 </li>
@@ -437,7 +457,8 @@
 </ul>
 </li>
 </ul>
-<p>3、外部网关协议 （EGP）</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">3、外部网关协议 （EGP）</div>
+
 <ul>
 <li><p>定义： 多个自治系统内进行信息传递时使用的路由选择协议</p>
 </li>
@@ -626,7 +647,7 @@ gitment.render('gitmentContainer')
       </div>
       <footer id="footer">
   <div class="foot-box global-width">
-    &copy; 2019 Bammy &nbsp;&nbsp;
+    &copy; 2020 Bammy &nbsp;&nbsp;
     Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
     <br>

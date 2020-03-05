@@ -24,7 +24,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/08/07/知识汇总/算法分析与设计/images/Prim3.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/07/知识汇总/算法分析与设计/images/Prim4.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/07/知识汇总/算法分析与设计/images/Prim5.png">
-<meta property="og:updated_time" content="2019-10-10T05:21:51.375Z">
+<meta property="og:updated_time" content="2019-12-09T15:52:22.807Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图论算法之最小生成树">
 <meta name="twitter:description" content="无向图中，使用最小的权值连接所有顶点后构成的图形">
@@ -118,17 +118,23 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        <h3 id="无向图中，使用最小的权值连接所有顶点后构成的图形"><a href="#无向图中，使用最小的权值连接所有顶点后构成的图形" class="headerlink" title="无向图中，使用最小的权值连接所有顶点后构成的图形"></a>无向图中，使用最小的权值连接所有顶点后构成的图形</h3><a id="more"></a>
+        <p style="font-weight: bold; font-size: 18px; color: #DDA0DD; margin-top: -6px;">无向图中，使用最小的权值连接所有顶点后构成的图形</p>
 
-<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">Prim算法</div>
+<a id="more"></a>
 
-<p>1、基本原理： </p>
+<blockquote>
+<p>Prim算法</p>
+</blockquote>
+<hr>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、基本原理： </div>
+
 <ul>
 <li>以各顶点为研究对象，使树连续的一步步长成：每走一步，都要把一个节点当作根节点并往上加，直至所有的顶点相关联，在算法上和Dijkstra算法相同。步骤如下图：</li>
 </ul>
 <img src="../../images/Prim0.png">
 
-<p>2、思路描述</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">2、思路描述</div>
+
 <ul>
 <li><p>绘制表格，列属性包括是否被遍历（known）、距离（Dv）、邻接顶点（Pv）。默认值为F、无穷大、0</p>
 </li>
@@ -139,7 +145,8 @@
 <li><p>循环上两步，直到所有的顶点均被遍历</p>
 </li>
 </ul>
-<p>3、实例讲解：</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">3、实例讲解：</div>
+
 <img src="../../images/Prim1.png">
 
 <ul>
@@ -175,8 +182,15 @@
 <ul>
 <li>根据终表的邻接节点和距离可以绘制最小生成树，结果如一图的最后一图</li>
 </ul>
-<p>4、代码实现:</p>
-<pre><code></code></pre><div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">Kruskal算法</div>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">4、代码实现:</div>
+
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>Kruskal算法</p>
+</blockquote>
+<hr>
+
       
     </div>
     
@@ -331,7 +345,7 @@ gitment.render('gitmentContainer')
       </div>
       <footer id="footer">
   <div class="foot-box global-width">
-    &copy; 2019 Bammy &nbsp;&nbsp;
+    &copy; 2020 Bammy &nbsp;&nbsp;
     Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
     <br>

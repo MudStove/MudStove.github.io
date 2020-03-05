@@ -16,7 +16,7 @@
 <meta property="og:url" content="http://yoursite.com/2019/08/26/知识汇总/操作系统/keep/index.html">
 <meta property="og:site_name" content="MudStove’s Blog">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-10-06T00:42:37.388Z">
+<meta property="og:updated_time" content="2019-12-09T04:38:40.504Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="存储管理">
   
@@ -108,11 +108,12 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        <!-- 存储基本 -->
+        <p style="font-weight: bold; font-size: 18px; color: #DDA0DD; margin-top: -6px;"></p>
 
 <a id="more"></a>
 
-<p>1、存储管理功能</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、存储管理功能</div>
+
 <ul>
 <li><p>虚拟存储器</p>
 </li>
@@ -135,7 +136,8 @@
 </ul>
 </li>
 </ul>
-<p>2、分区存储管理</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">2、分区存储管理</div>
+
 <ul>
 <li><p>原理：给每一个内存中进程划分一块适当大小的存储区，用以连续存储各进程的程序与数据，使各程序能并发执行</p>
 </li>
@@ -183,14 +185,16 @@
 </ul>
 </li>
 </ul>
-<p>3、覆盖与交换技术</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">3、覆盖与交换技术</div>
+
 <ul>
 <li><p>覆盖技术：同一程序内，把程序划分为若干功能独立的程序段，把不会同时执行的程序段放在一个分区内（一般是外存），当前面程序执行完后，把后续需要的程序段调入内存覆盖前面的已完成的程序段</p>
 </li>
 <li><p>交换技术：不同程序间，把暂时不需要的程序数据保存在外存交换区，需要用到时，从外存交换区调取所需程序到内存中，实现内存的扩充</p>
 </li>
 </ul>
-<p>4、页式管理</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">4、页式管理</div>
+
 <ul>
 <li><p>基本原理：把进程的虚拟空间划分为若干长度相等的页、内存空间也按照页的大小划分为片或页面</p>
 </li>
@@ -251,7 +255,8 @@
 </ul>
 </li>
 </ul>
-<p>5、段式管理</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">5、段式管理</div>
+
 <ul>
 <li><p>基本思想：把程序按照内容或过程关系分成段，每段有自己的名字，对应一个二维虚拟空间</p>
 </li>
@@ -278,7 +283,8 @@
 </ul>
 </li>
 </ul>
-<p>6、段页式管理</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">6、段页式管理</div>
+
 <ul>
 <li><p>结合了段式管理与页式管理的优点</p>
 </li>
@@ -442,7 +448,7 @@ gitment.render('gitmentContainer')
       </div>
       <footer id="footer">
   <div class="foot-box global-width">
-    &copy; 2019 Bammy &nbsp;&nbsp;
+    &copy; 2020 Bammy &nbsp;&nbsp;
     Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
     <br>

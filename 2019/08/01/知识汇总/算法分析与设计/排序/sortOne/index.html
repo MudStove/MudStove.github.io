@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="MudStove’s Blog">
 <meta property="og:description" content="本篇主要介绍“交换排序”（直接交换两个数据的位置），涉及排序算法：冒泡排序、快速排序">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-10-02T02:47:36.313Z">
+<meta property="og:updated_time" content="2019-12-09T15:41:33.398Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="排序一交换排序">
 <meta name="twitter:description" content="本篇主要介绍“交换排序”（直接交换两个数据的位置），涉及排序算法：冒泡排序、快速排序">
@@ -111,7 +111,8 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        <p>本篇主要介绍“交换排序”（直接交换两个数据的位置），涉及排序算法：冒泡排序、快速排序</p>
+        <p style="font-weight: bold; font-size: 18px; color: #DDA0DD; margin-top: -6px;">本篇主要介绍“交换排序”（直接交换两个数据的位置），涉及排序算法：冒泡排序、快速排序</p>
+
 <a id="more"></a>
 
 <p>推荐一篇很详细的博文：<a href="https://www.cnblogs.com/onepixel/p/7674659.html" target="_blank" rel="noopener">https://www.cnblogs.com/onepixel/p/7674659.html</a></p>
@@ -119,7 +120,8 @@
 <p>冒泡排序（Bubble Sort）</p>
 </blockquote>
 <hr>
-<p>1、思路描述：</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、思路描述：</div>
+
 <ul>
 <li><p>一组乱序数据，通过轮流比较相邻的两个数，把更大的数据右移，一轮结束后，把待排序数据中最大数挪于最后</p>
 </li>
@@ -128,10 +130,12 @@
 <li><p>直到最后一轮只有一个数据待排序，则循环结束</p>
 </li>
 </ul>
-<p>2、代码实现：</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">2、代码实现：</div>
+
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function BubbleSort(arr) &#123;     // 冒泡排序函数、arr为待排序数组 ---&gt; eg: 假设arr中共有5个数</span><br><span class="line"></span><br><span class="line">  // 时间复杂度： O(n)</span><br><span class="line">  for (let i = 0 ; i &lt; arr.length - 1 ; i++) &#123;   // arr.length 个数据，一轮排序得到1个最大值，需要 arr.length-1 轮  ---&gt; eg: 只要4轮就能得到从大到小的5个数</span><br><span class="line"></span><br><span class="line">    // 时间复杂度： O(n*n)</span><br><span class="line">    for (let j = 0 ; j &lt; arr.length - 1 - i ; j++) &#123;   // 每一轮待排序的数的个数 = 总个数 - 轮数 -1 = arr.length - 1 - i ---&gt; eg:第三轮待排序的数的个数 = 5（总个数） - 2（前两轮已经得出了最的两个数）-1（只剩1个数时不需要比）</span><br><span class="line"></span><br><span class="line">      // 时间复杂度： O(n*n +1)</span><br><span class="line">      if (arr[j] &gt; arr [j+1]) &#123;   // 如果大的数在前，就交换位置</span><br><span class="line">        let t = arr[j+1]; </span><br><span class="line">        arr[j+1] = arr[j];</span><br><span class="line">        arr[j] = t;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
-<p>3、稳定性：乱序中相同的两个数在排序前与排序后位置是否改变，改变则不稳定，反之稳定</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">3、稳定性：乱序中相同的两个数在排序前与排序后位置是否改变，改变则不稳定，反之稳定</div>
+
 <table>
 <thead>
 <tr>
@@ -154,7 +158,8 @@
 <p>快速排序（Quick Sort）</p>
 </blockquote>
 <hr>
-<p>1、思路描述：</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、思路描述：</div>
+
 <ul>
 <li><p>选择一个数为基准（默认第一个数）</p>
 </li>
@@ -167,8 +172,12 @@
 <li><p>递归基准两边的子数组，直到待排序数为1</p>
 </li>
 </ul>
-<p>2、代码实现：</p>
-<pre><code></code></pre><p>3、 栗子：6 3* 2 4 3 8 9 10 11</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">2、代码实现：</div>
+
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">3、 栗子：6 3* 2 4 3 8 9 10 11</div>
+
 <p>—&gt; 6是第五大数（比3* 2 4 3大）–&gt; 6和下标为5的数据交换 –&gt; 3 3* 2 4 6 8 9 10 11  ==&gt; 不稳定</p>
 <table>
 <thead>
@@ -347,7 +356,7 @@ gitment.render('gitmentContainer')
       </div>
       <footer id="footer">
   <div class="foot-box global-width">
-    &copy; 2019 Bammy &nbsp;&nbsp;
+    &copy; 2020 Bammy &nbsp;&nbsp;
     Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
     <br>

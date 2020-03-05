@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="MudStove’s Blog">
 <meta property="og:description" content="运输层是整个网络体系中的关键层次之一，主要TCP,UDP的内容">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-09-29T09:15:02.980Z">
+<meta property="og:updated_time" content="2019-12-09T04:49:40.962Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OSI之传输层">
 <meta name="twitter:description" content="运输层是整个网络体系中的关键层次之一，主要TCP,UDP的内容">
@@ -111,17 +111,20 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        <p>运输层是整个网络体系中的关键层次之一，主要TCP,UDP的内容</p>
+        <p style="font-weight: bold; font-size: 18px; color: #DDA0DD; margin-top: -6px;">运输层是整个网络体系中的关键层次之一，主要TCP,UDP的内容</p>
+
 <a id="more"></a>
 
-<p>1、传输层作用:</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、传输层作用:</div>
+
 <ul>
 <li><p>用于向它上面的应用层特供通信服务</p>
 </li>
 <li><p>提供进程间的逻辑通信（网络层提供主机间的逻辑通信）</p>
 </li>
 </ul>
-<p>2、TCP 与 UDP 协议</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">2、TCP 与 UDP 协议</div>
+
 <table>
 <thead>
 <tr>
@@ -175,14 +178,16 @@
 <blockquote>
 <p>TCP</p>
 </blockquote>
-<p>1、套接字（socket）： </p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、套接字（socket）</div>
+
 <ul>
 <li><p>定义：TCP是端到端的连接，而TCP的端点即为套接字也叫插口;同时两个套接字也确定一条TCP连接</p>
 </li>
 <li><p>socket = IP地址:端口号  eg: 若IP地址为192.3.4.5，端口号为8080 ==&gt;  socket = 192.3.4.5:8080</p>
 </li>
 </ul>
-<p>2、可靠传输原理：</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">2、可靠传输原理：</div>
+
 <ul>
 <li><p>停止等待协议</p>
 <ul>
@@ -205,7 +210,8 @@
 </ul>
 </li>
 </ul>
-<p>3、流量控制</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">3、流量控制</div>
+
 <ul>
 <li><p>定义：让发送方的发送速率不要太快，以便于接收方来得及接收</p>
 </li>
@@ -221,7 +227,8 @@
 <p>PS: 空闲缓存区的大小 = 接收窗口大小</p>
 </li>
 </ul>
-<p>4、拥塞控制</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">4、拥塞控制</div>
+
 <ul>
 <li><p>定义：（资源需求量 &gt; 资源可用量时即为拥塞）防止过多数据注入网络，造成网络中路由器或链路过载</p>
 </li>
@@ -239,7 +246,8 @@
 </ul>
 </li>
 </ul>
-<p>5、运输连接管理</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">5、运输连接管理</div>
+
 <ul>
 <li><p>三次握手：建立连接阶段</p>
 <ul>
@@ -421,7 +429,7 @@ gitment.render('gitmentContainer')
       </div>
       <footer id="footer">
   <div class="foot-box global-width">
-    &copy; 2019 Bammy &nbsp;&nbsp;
+    &copy; 2020 Bammy &nbsp;&nbsp;
     Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
     <br>

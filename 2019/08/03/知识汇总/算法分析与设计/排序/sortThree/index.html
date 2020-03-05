@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="MudStove’s Blog">
 <meta property="og:description" content="本篇主要介绍“选择排序”,涉及排序算法：简单选择排序、堆排序">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2019-10-02T03:35:33.991Z">
+<meta property="og:updated_time" content="2019-12-09T15:45:11.142Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="排序三之选择排序">
 <meta name="twitter:description" content="本篇主要介绍“选择排序”,涉及排序算法：简单选择排序、堆排序">
@@ -111,7 +111,8 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        <p>本篇主要介绍“选择排序”,涉及排序算法：简单选择排序、堆排序</p>
+        <p style="font-weight: bold; font-size: 18px; color: #DDA0DD; margin-top: -6px;">本篇主要介绍“选择排序”,涉及排序算法：简单选择排序、堆排序</p>
+
 <a id="more"></a>
 
 <p>推荐一篇很详细的博文：<a href="https://www.cnblogs.com/onepixel/p/7674659.html" target="_blank" rel="noopener">https://www.cnblogs.com/onepixel/p/7674659.html</a></p>
@@ -119,7 +120,8 @@
 <p>简单选择排序（Selection Sort）</p>
 </blockquote>
 <hr>
-<p>1、思路描述(默认从小到大排序)</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、思路描述(默认从小到大排序)</div>
+
 <ul>
 <li><p>选择排序即为依次选出最小值充当排好序的数据</p>
 </li>
@@ -132,8 +134,13 @@
 <li><p>交换最小值放和待排序数据的第一个位置，即为把最小值放在排好序数据之后</p>
 </li>
 </ul>
-<p>2、代码实现</p>
-<p>3、 栗子：5* 8 5 2 9 </p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">2、代码实现</div>
+
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">3、复杂度和稳定性</div>
+
+<p> 栗子：5* 8 5 2 9 </p>
 <p>—&gt;一轮后： 2 8 5 5* 9  ==&gt; 不稳定</p>
 <table>
 <thead>
@@ -157,14 +164,16 @@
 <p>堆排序（Heap Sort）</p>
 </blockquote>
 <hr>
-<p>1、定义：</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">1、定义：</div>
+
 <ul>
 <li><p>堆序性质：所有父节点的值小于（大于）子节点的值，因此根节点为最小值（最大值）。而堆排序即为让数据根据堆序性质进行排序，排完序后得到最小值（最大值）为根节点处数值</p>
 </li>
 <li><p>父节点为第i个数 ==&gt; 左子节点下标：2<em>i； 右子节点下标：(2</em>i+1)</p>
 </li>
 </ul>
-<p>2、思路描述（默认从小到大排序）</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">2、思路描述（默认从小到大排序）</div>
+
 <ul>
 <li><p>让待排序数据构成一个堆（此时堆还不是标准、符合堆序性质的）</p>
 </li>
@@ -179,8 +188,12 @@
 <li><p>当只剩剩根节点时，循环结束。</p>
 </li>
 </ul>
-<p>3、代码实现：</p>
-<pre><code></code></pre><p>4、</p>
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">3、代码实现：</div>
+
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<div style="background: #F0E68C; color: #FFFAFA;font-size: 20px;">4、复杂度和稳定性</div>
+
 <table>
 <thead>
 <tr>
@@ -354,7 +367,7 @@ gitment.render('gitmentContainer')
       </div>
       <footer id="footer">
   <div class="foot-box global-width">
-    &copy; 2019 Bammy &nbsp;&nbsp;
+    &copy; 2020 Bammy &nbsp;&nbsp;
     Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     &nbsp;|&nbsp;主题 <a href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
     <br>
